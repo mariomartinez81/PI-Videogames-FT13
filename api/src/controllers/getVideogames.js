@@ -84,22 +84,6 @@ async function getVideoGames(req, res) {
         .filter((ele) => ele.length > 0)
         .flat(Infinity);
 
-      const results = {};
-
-      const startIndex = (pag - 1) * lim;
-      const endIndex = pag * lim;
-
-      if (matchGenre.length > 0 && matchGenre.length > 15) {
-        results.next_page = `http://localhost:3001/video?pag=${pag + 1}&lim=15`;
-      }
-
-      if (pag > 1)
-        results.previous_page = `http://localhost:3001/video?pag=${
-          pag - 1
-        }&lim=15`;
-
-      results.results = matchGenre.slice(startIndex, endIndex);
-
       res.json(results);
     } catch (error) {
       if (results.results.length < 1) res.sendStatus(400);

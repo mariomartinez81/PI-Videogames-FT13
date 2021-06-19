@@ -1,0 +1,17 @@
+.detail {
+  background-color: #0e0d0db2;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.imgDetail {
+  width: 30rem;
+  height: 20rem;
+  box-shadow: 7px 7px 6px white;
+}
+
+.infoDetail {
+  color: white;
+}

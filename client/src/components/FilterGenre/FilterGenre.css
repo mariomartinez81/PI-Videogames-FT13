@@ -1,0 +1,18 @@
+.container-item {
+  margin: 1rem 1rem;
+}
+
+.imgGame {
+  width: 20rem;
+  height: 20rem;
+  margin: 0.5 rem;
+}
+.search-by-genre {
+  display: block;
+}
+
+.container-gemes-genres {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

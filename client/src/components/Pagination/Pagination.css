@@ -1,0 +1,17 @@
+.prev {
+  width: 10rem;
+}
+.prev:hover {
+  transform: scale(1.2, 1.2);
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.next {
+  width: 10rem;
+}
+.next:hover {
+  transform: scale(1.2, 1.2);
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}

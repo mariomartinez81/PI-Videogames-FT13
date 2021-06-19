@@ -1,0 +1,10 @@
+.search-by-genre {
+  margin: 5px;
+}
+
+.search-select {
+  border: 1px solid #393939;
+  border-radius: 5px 5px 5px 5px;
+  color: #2b2626;
+  box-shadow: 3px 3px 3px grey;
+}

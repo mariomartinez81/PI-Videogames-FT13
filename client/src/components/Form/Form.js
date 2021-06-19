@@ -1,0 +1,117 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getGenres } from '../../actions';
+import Input from '../Input/Input';
+import Select from '../Select/Select';
+import './Form.css';
+import axios from 'axios';
+
+const platforms = [
+  { name: 'XBox 360' },
+  { name: 'XBox One' },
+  { name: 'XBox Series S/X' },
+  { name: 'PlayStation 1' },
+  { name: 'PlayStation 2' },
+  { name: 'PlayStation 3' },
+  { name: 'PlayStation 4' },
+  { name: 'PlayStation 5' },
+  { name: 'PC' },
+  { name: 'Nintendo' },
+  { name: 'Wii' },
+  { name: 'Sega' },
+];
+
+const Form = () => {
+  const gamesGenres = useSelector((state) => state.gamesGenres);
+  const dispatch = useDispatch();
+  const [alert, setAlert] = useState({
+    create: false,
+  });
+  const [data, setData] = useState({
+    name: '',
+    description: '',
+    released: '',
+    rating: 0,
+    platforms: [],
+    genres: [],
+  });
+
+  useEffect(() => {
+    dispatch(getGenres());
+  }, [dispatch, alert]);
+
+  const handleInput = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSelectPlatforms = (e) => {
+    setData({
+      ...data,
+      platforms: [...data.platforms, e.target.value],
+    });
+  };
+
+  const handleSelectGenre = (e) => {
+    setData({
+      ...data,
+      genres: [...data.genres, e.target.value],
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(`http://localhost:3001/videogame`, data);
+      setAlert({
+        create: true,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //console.log(gamesGenres); //! pendiente remover este console.log()
+
+  return (
+    <div className='containerForm'>
+      <h1>Create a new video game</h1>
+      <form action='' onSubmit={handleSubmit} className='style-form'>
+        <Input name='name' type='text' handleInput={handleInput} />
+        <Input name='description' type='text' handleInput={handleInput} />
+        <Input name='released' type='date' handleInput={handleInput} />
+        <Input name='rating' type='number' handleInput={handleInput} />
+        <>
+          <Select
+            name='platforms'
+            data={platforms}
+            handleSelect={handleSelectPlatforms}
+          />
+          {data.platforms.map((platform, i) => (
+            <li key={i}>{platform}</li>
+          ))}
+        </>
+        <>
+          <Select
+            name='genres'
+            data={gamesGenres}
+            handleSelect={handleSelectGenre}
+            state={data}
+          />
+          {data.genres.map((genre, i) => (
+            <li key={i}>{genre}</li>
+          ))}
+        </>
+        <input type='submit' value='Submit' className='button' />
+        {alert.create ? (
+          <div className='create--confirm'>
+            <h3 className='message--create'>Game was created!</h3>
+          </div>
+        ) : null}
+      </form>
+    </div>
+  );
+};
+
+export default Form;

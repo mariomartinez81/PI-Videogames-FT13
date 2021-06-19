@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gameContainer {
+  margin: 1rem 1rem;
+  border-radius: 10px;
+}
+
+.imgGame {
+  height: 13rem;
+  width: 15rem;
+  margin: 0.5 rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #7d3db9;
+}
+
+.imgCreateGame {
+  margin-top: 1rem;
+}
+.imgCreateGame:hover {
+  transform: scale(1.1, 1.1);
+  transition: transform 0.5s ease-in-out;
+  filter: saturate(180%);
+}

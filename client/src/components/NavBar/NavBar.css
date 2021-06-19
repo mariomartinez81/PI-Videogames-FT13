@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  background-attachment: fixed;
+  position: sticky;
+  background-color: grey;
+}

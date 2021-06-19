@@ -1,0 +1,26 @@
+h1 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: max-content;
+  /* background: tan; */
+}
+
+.button {
+  border: 1px solid grey;
+  color: slategrey;
+  border-radius: 4px;
+  box-shadow: 3px 3px 3px grey;
+}
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+  transition: transform 0.2s ease-in;
+}

@@ -11,10 +11,8 @@ export const ADD_FAVORITES = 'ADD_FAVORITES';
 export const REMOVE_FAVORITES = 'REMOVE_FAVORITES';
 export const FILTERING_GENRE = 'FILTERING_GENRE';
 //ordering
-export const ALPHABETIC_ORDERING_AZ = 'ALPHABETIC_ORDERING_AZ';
-export const ALPHABETIC_ORDERING_ZA = 'ALPHABETIC_ORDERING_ZA';
-export const RATING_ORDERING_HIGHEST = 'RATING_ORDERING_HIGHEST';
-export const RATING_ORDERING_LOWEST = 'RATING_ORDERING_LOWEST';
+export const ALPHABETIC_ORDERING = 'ALPHABETIC_ORDERING';
+export const RATING_ORDERING = 'RATING_ORDERING';
 
 export const getVideogames = (url) => async (dispatch) => {
   try {
@@ -116,26 +114,61 @@ export const filterGenre = (payload, url) => async (dispatch) => {
     }
   }
 };
+export const alphabeticOrder = (payload, url) => async (dispatch) => {
+  if (!url) {
+    try {
+      const alphabeticGames = await axios.get(
+        `http://localhost:3001/videogames?order=${payload}`
+      );
+      const response = alphabeticGames.data;
+      dispatch({
+        type: ALPHABETIC_ORDERING,
+        payload: response,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    try {
+      const alphabeticGames = await axios.get(`${url}`);
+      const response = alphabeticGames.data;
+      dispatch({
+        type: ALPHABETIC_ORDERING,
+        payload: response,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
 
-export const orderingAz = () => ({
-  type: ALPHABETIC_ORDERING_AZ,
-  payload: 'ordering-AZ',
-});
-
-export const orderingZa = () => ({
-  type: ALPHABETIC_ORDERING_ZA,
-  payload: 'ordering-ZA',
-});
-
-export const ratingOrderHighest = () => ({
-  type: RATING_ORDERING_HIGHEST,
-  payload: 'rating-highest',
-});
-
-export const ratingOrderingLowest = () => ({
-  type: RATING_ORDERING_LOWEST,
-  payload: 'rating-lowest',
-});
+export const ratingOrder = (payload, url) => async (dispatch) => {
+  if (!url) {
+    try {
+      const ratingGames = await axios.get(
+        `http://localhost:3001/videogames?rating=${payload}`
+      );
+      const response = ratingGames.data;
+      dispatch({
+        type: RATING_ORDERING,
+        payload: response,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  } else {
+    try {
+      const ratingGames = await axios.get(`${url}`);
+      const response = ratingGames.data;
+      dispatch({
+        type: RATING_ORDERING,
+        payload: response,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};
 
 export const addFavorites = (payload) => ({
   type: ADD_FAVORITES,

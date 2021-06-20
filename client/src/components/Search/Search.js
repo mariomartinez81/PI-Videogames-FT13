@@ -17,7 +17,7 @@ const Search = () => {
   return (
     <>
       <div>
-        <h1>🎮 Video Games 🎮</h1>
+        {/* <h1>🎮 Video Games 🎮</h1> */}
         <input
           type='text'
           placeholder='search game by name'

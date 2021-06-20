@@ -16,13 +16,15 @@ import OrderedZA from '../Ordered/OrderedZA';
 import Pagination from '../Pagination/Pagination';
 import Highest from '../RatingOrder/Highest';
 import Lowest from '../RatingOrder/Lowest';
-import Search from '../Search/Search';
-import SearchByGenre from '../SearchByGenre/SearchByGenre';
 import FilterGenre from '../FilterGenre/FilterGenre';
-import Select from '../Select/Select';
-import '../Select/Select.css';
+import Filtering from '../Filtering/Filtering';
+
+// import Search from '../Search/Search';
+// import SearchByGenre from '../SearchByGenre/SearchByGenre';
+// import NavBar from '../NavBar/NavBar';
+
 //img
-import createGame from '../../assets/img/createGame4.png';
+// import createGame from '../../assets/img/createGame4.png';
 
 //css
 import './Home.css';
@@ -45,56 +47,58 @@ const Home = () => {
   };
 
   // handles alphabetic order
-  const handleOrderAZ = () => {
-    dispatch(orderingAz());
-  };
-  const handleOrderZA = () => {
-    dispatch(orderingZa());
-  };
+  // const handleOrderAZ = () => {
+  //   dispatch(orderingAz());
+  // };
+  // const handleOrderZA = () => {
+  //   dispatch(orderingZa());
+  // };
 
   // handles ratings order
-  const handleHigest = () => {
-    dispatch(ratingOrderHighest());
-  };
-  const handleLowest = () => {
-    dispatch(ratingOrderingLowest());
-  };
+  // const handleHigest = () => {
+  //   dispatch(ratingOrderHighest());
+  // };
+  // const handleLowest = () => {
+  //   dispatch(ratingOrderingLowest());
+  // };
 
   //handles paginations
   const handleNext = () => {
-    // if (type === 'byGenres') {
-    //   dispatch(filterGenre(false, gamesByGenre.next_page));
-    // }
-
-    const { next_page } = gamesLoaded;
-    dispatch(getVideogames(next_page));
+    if (type === 'byGenres') {
+      dispatch(filterGenre(false, gamesByGenre.next_page));
+    } else {
+      const { next_page } = gamesLoaded;
+      dispatch(getVideogames(next_page));
+    }
   };
   const handlePrev = () => {
-    // if (type === 'byGenres') {
-    //   dispatch(filterGenre(false, gamesByGenre.previous_page));
-    // }
-    const { previous_page } = gamesLoaded;
-    dispatch(getVideogames(previous_page));
+    if (type === 'byGenres') {
+      dispatch(filterGenre(false, gamesByGenre.previous_page));
+    } else {
+      const { previous_page } = gamesLoaded;
+      dispatch(getVideogames(previous_page));
+    }
   };
 
   return (
     <>
-      <NavLink to='/creategame'>
+      {/* <NavBar /> */}
+      {/* <NavLink to='/creategame'>
         <img
           src={createGame}
           alt='imgCreateGame'
           width='20%'
           className='imgCreateGame'
         />
-      </NavLink>
-      <Search />
+      </NavLink> */}
 
-      <SearchByGenre gamesLoaded={gamesLoaded} />
-
-      <button onClick={handleOrderAZ}>A - Z</button>
+      {/* <Search /> */}
+      {/* <SearchByGenre gamesLoaded={gamesLoaded} /> */}
+      <Filtering />
+      {/* <button onClick={handleOrderAZ}>A - Z</button>
       <button onClick={handleOrderZA}>Z - A</button>
       <button onClick={handleHigest}>Rating ➕ </button>
-      <button onClick={handleLowest}>Rating ➖ </button>
+      <button onClick={handleLowest}>Rating ➖ </button> */}
 
       {type === 'byGenres' && (
         <>
@@ -105,13 +109,13 @@ const Home = () => {
       {type === 'ordering-AZ' && (
         <>
           <button onClick={handleBack}>🔙 </button>
-          <OrderedAZ handleOrderAZ={handleOrderAZ} gamesLoaded={gamesLoaded} />
+          {/* <OrderedAZ handleOrderAZ={handleOrderAZ} gamesLoaded={gamesLoaded} /> */}
         </>
       )}
       {type === 'ordering-ZA' && (
         <>
           <button onClick={handleBack}>🔙 </button>
-          <OrderedZA gamesLoaded={gamesLoaded} handleOrderZA={handleOrderZA} />
+          {/* <OrderedZA gamesLoaded={gamesLoaded} handleOrderZA={handleOrderZA} /> */}
         </>
       )}
       {type === 'rating-highest' && (
@@ -119,7 +123,7 @@ const Home = () => {
           <button onClick={handleBack}>🔙 </button>
           <Highest
             gamesLoaded={gamesLoaded}
-            ratingOrderHighest={ratingOrderHighest}
+            // ratingOrderHighest={ratingOrderHighest}
           />
         </>
       )}
@@ -128,7 +132,7 @@ const Home = () => {
           <button onClick={handleBack}>🔙 </button>
           <Lowest
             gamesLoaded={gamesLoaded}
-            ratingOrderingLowest={ratingOrderingLowest}
+            // ratingOrderingLowest={ratingOrderingLowest}
           />
         </>
       )}

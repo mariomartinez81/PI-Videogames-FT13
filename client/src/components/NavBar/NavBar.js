@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
+import Search from '../Search/Search';
+import SearchByGenre from '../SearchByGenre/SearchByGenre';
+import createGame from '../../assets/img/createGame4.png';
 
 const NavBar = () => {
   return (
@@ -11,6 +14,16 @@ const NavBar = () => {
       </NavLink>
       <NavLink to='/favs' className='navRef'>
         Favorites 🌟
+      </NavLink>
+      <Search />
+      <SearchByGenre />
+      <NavLink to='/creategame'>
+        <img
+          src={createGame}
+          alt='imgCreateGame'
+          width='20%'
+          className='imgCreateGame'
+        />
       </NavLink>
     </div>
   );

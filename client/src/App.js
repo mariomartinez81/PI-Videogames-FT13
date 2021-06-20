@@ -14,12 +14,23 @@ function App() {
       <Route exact path='/'>
         <Inicial />
       </Route>
-      <NavBar />
+
       <Route exact path='/home'>
+        <NavBar />
         <Home />
       </Route>
-      <Route exact path='/videogame/:id' component={Detail} />
-      <Route exact path='/creategame' component={Form} />
+
+      <Route exact path='/videogame/:id'>
+        <NavBar />
+        <Detail />
+      </Route>
+
+      <Route exact path='/creategame' component={Form}>
+        <NavBar />
+        <Form />
+      </Route>
+      {/* <Route exact path='/videogame/:id' component={Detail} />
+      <Route exact path='/creategame' component={Form} /> */}
     </div>
   );
 }

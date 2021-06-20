@@ -7,10 +7,8 @@ import {
   GET_VIDEOGAMES_BY_NAME,
   REMOVE_FAVORITES,
   FILTERING_GENRE,
-  ALPHABETIC_ORDERING_AZ,
-  ALPHABETIC_ORDERING_ZA,
-  RATING_ORDERING_HIGHEST,
-  RATING_ORDERING_LOWEST,
+  ALPHABETIC_ORDERING,
+  RATING_ORDERING,
 } from '../actions';
 
 const initialState = {
@@ -20,10 +18,9 @@ const initialState = {
   gamesByGenre: {},
   gameDetail: undefined,
   gamesGenres: [],
-  orderingAZ: [],
-  orderingZA: [],
-  ratingHighest: [],
-  ratingLowest: [],
+  alphabeticOrdering: {},
+  ratingOrdering: {},
+
   gamesFavorites: [],
 };
 
@@ -61,6 +58,27 @@ export default function rootReducers(state = initialState, action) {
         type: action.payload,
       };
 
+    case FILTERING_GENRE:
+      return {
+        ...state,
+        type: 'byGenres',
+        gamesByGenre: { ...action.payload },
+      };
+
+    case ALPHABETIC_ORDERING:
+      return {
+        ...state,
+        type: action.payload,
+        alphabeticOrdering: { ...action.payload },
+      };
+
+    case RATING_ORDERING:
+      return {
+        ...state,
+        type: action.payload,
+        ratingOrdering: { ...action.payload },
+      };
+
     case ADD_FAVORITES:
       return {
         ...state,
@@ -74,66 +92,6 @@ export default function rootReducers(state = initialState, action) {
           (game) => game.id !== action.payload
         ),
       };
-
-    case FILTERING_GENRE:
-      return {
-        ...state,
-        type: 'byGenres',
-        gamesByGenre: { ...action.payload },
-      };
-
-    case ALPHABETIC_ORDERING_AZ:
-      return {
-        ...state,
-        type: action.payload,
-        orderingAZ: [
-          ...state.gamesLoaded.results.sort((a, b) =>
-            a.name.toLowerCase() > b.name.toLowerCase()
-              ? 1
-              : a.name.toLowerCase() < b.name.toLowerCase()
-              ? -1
-              : 0
-          ),
-        ],
-      };
-
-    case ALPHABETIC_ORDERING_ZA:
-      return {
-        ...state,
-        type: action.payload,
-        orderingZA: [
-          ...state.gamesLoaded.results.sort((a, b) =>
-            a.name.toLowerCase() > b.name.toLowerCase()
-              ? -1
-              : a.name.toLowerCase() < b.name.toLowerCase()
-              ? 1
-              : 0
-          ),
-        ],
-      };
-
-    case RATING_ORDERING_HIGHEST:
-      return {
-        ...state,
-        type: action.payload,
-        ratingHighest: [
-          ...state.gamesLoaded.results.sort((a, b) =>
-            a.rating > b.rating ? -1 : a.rating < b.rating ? 1 : 0
-          ),
-        ],
-      };
-
-    case RATING_ORDERING_LOWEST:
-      return {
-        ...state,
-        type: action.payload,
-        ratingLowest: [
-          ...state.gamesLoaded.results.sort((a, b) =>
-            a.rating > b.rating ? 1 : a.rating < b.rating ? -1 : 0
-          ),
-        ],
-      };
-
     default:
       return state;
   }

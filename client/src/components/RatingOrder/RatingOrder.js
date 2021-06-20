@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-const OrderedZA = ({ gamesLoaded, handleOrderZA }) => {
-  const orderingZA = useSelector((state) => state.orderingZA);
+const RatingOrder = () => {
+  // useEffect(() => {
+  //   ratingOrderHighest();
+  // }, [gamesLoaded, ratingOrderHighest]);
 
-  useEffect(() => {
-    handleOrderZA();
-  }, [gamesLoaded, handleOrderZA]);
-
+  const ratingOrdering = useSelector((state) => state.ratingOrdering);
   return (
     <div className='container'>
-      {orderingZA &&
-        orderingZA.map((game) =>
+      {ratingOrdering &&
+        ratingOrdering.results.map((game) =>
           game.image ? (
             <div key={game.id} className='gameContainer'>
               <NavLink to={`videogame/${game.id}`}>
@@ -45,4 +44,4 @@ const OrderedZA = ({ gamesLoaded, handleOrderZA }) => {
   );
 };
 
-export default OrderedZA;
+export default RatingOrder;

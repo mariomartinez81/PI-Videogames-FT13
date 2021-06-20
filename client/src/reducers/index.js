@@ -68,14 +68,14 @@ export default function rootReducers(state = initialState, action) {
     case ALPHABETIC_ORDERING:
       return {
         ...state,
-        type: action.payload,
+        type: action.state,
         alphabeticOrdering: { ...action.payload },
       };
 
     case RATING_ORDERING:
       return {
         ...state,
-        type: action.payload,
+        type: action.state,
         ratingOrdering: { ...action.payload },
       };
 

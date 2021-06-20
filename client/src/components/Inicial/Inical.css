@@ -1,5 +1,14 @@
+.inicial-page {
+  margin: 0px 0px;
+
+  background-image: url('https://t3.ftcdn.net/jpg/03/23/88/08/360_F_323880864_TPsH5ropjEBo1ViILJmcFHJqsBzorxUB.jpg');
+  background-size: contain;
+  height: 200%;
+  opacity: 5;
+}
+
 .imgInicial {
-  width: 90%;
+  width: 30%;
 }
 
 .imgInicial:hover {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getVideogamesByname } from '../../actions';
+import { backUp, getVideogamesByname } from '../../actions';
 import './Search.css';
 
 const Search = () => {
@@ -14,6 +14,10 @@ const Search = () => {
   const handleClick = () => {
     dispatch(getVideogamesByname(input));
   };
+
+  const handleBack = () => {
+    dispatch(backUp());
+  };
   return (
     <>
       <div>
@@ -25,6 +29,7 @@ const Search = () => {
           className='search-videogame'
         />
         <button onClick={handleClick}>🏸</button>
+        <button onClick={handleBack}>🔙 </button>
       </div>
     </>
   );

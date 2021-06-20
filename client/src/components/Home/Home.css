@@ -19,6 +19,8 @@
 
 .imgCreateGame {
   margin-top: 1rem;
+  width: 15rem;
+  margin-right: 1rem;
 }
 .imgCreateGame:hover {
   transform: scale(1.1, 1.1);

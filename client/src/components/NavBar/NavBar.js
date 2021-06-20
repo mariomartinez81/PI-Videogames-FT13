@@ -4,6 +4,7 @@ import './NavBar.css';
 import Search from '../Search/Search';
 import SearchByGenre from '../SearchByGenre/SearchByGenre';
 import createGame from '../../assets/img/createGame4.png';
+import Filtering from '../Filtering/Filtering';
 
 const NavBar = () => {
   return (
@@ -17,6 +18,7 @@ const NavBar = () => {
       </NavLink>
       <Search />
       <SearchByGenre />
+      <Filtering />
       <NavLink to='/creategame'>
         <img
           src={createGame}

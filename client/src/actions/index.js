@@ -123,6 +123,7 @@ export const alphabeticOrder = (payload, url) => async (dispatch) => {
       const response = alphabeticGames.data;
       dispatch({
         type: ALPHABETIC_ORDERING,
+        state: payload,
         payload: response,
       });
     } catch (error) {
@@ -134,6 +135,7 @@ export const alphabeticOrder = (payload, url) => async (dispatch) => {
       const response = alphabeticGames.data;
       dispatch({
         type: ALPHABETIC_ORDERING,
+        state: payload,
         payload: response,
       });
     } catch (error) {
@@ -151,6 +153,7 @@ export const ratingOrder = (payload, url) => async (dispatch) => {
       const response = ratingGames.data;
       dispatch({
         type: RATING_ORDERING,
+        state: payload,
         payload: response,
       });
     } catch (error) {
@@ -162,6 +165,7 @@ export const ratingOrder = (payload, url) => async (dispatch) => {
       const response = ratingGames.data;
       dispatch({
         type: RATING_ORDERING,
+        state: payload,
         payload: response,
       });
     } catch (error) {

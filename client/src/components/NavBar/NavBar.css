@@ -4,7 +4,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 5px;
-  background-attachment: fixed;
+  background-attachment: scroll;
   position: sticky;
-  background-color: grey;
+  background-image: url('https://i.imgur.com/R3cpQ9R.gif');
+  background-size: cover;
+}
+.navRef {
+  color: white;
 }

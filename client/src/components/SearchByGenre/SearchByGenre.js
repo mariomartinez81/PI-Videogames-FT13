@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterGenre, getGenres } from '../../actions';
+import { backUp, filterGenre, getGenres } from '../../actions';
 import './SearchByGenre.css';
 
-const SearchByGenre = ({ gamesLoaded }) => {
+const SearchByGenre = () => {
   const [select, setSelect] = useState('');
   const dispatch = useDispatch();
   const gamesGenres = useSelector((state) => state.gamesGenres);
-
-  const handleSelector = (e) => {
-    setSelect(e.target.value);
-  };
 
   useEffect(() => {
     dispatch(getGenres());
@@ -18,6 +14,15 @@ const SearchByGenre = ({ gamesLoaded }) => {
     // return () => {
     // };
   }, [dispatch, select]);
+
+  const handleBack = () => {
+    dispatch(backUp());
+  };
+
+  const handleSelector = (e) => {
+    setSelect(e.target.value);
+  };
+
   return (
     <div className='search-by-genre'>
       {gamesGenres && (
@@ -34,6 +39,7 @@ const SearchByGenre = ({ gamesLoaded }) => {
               <option key={i}>{genre.name}</option>
             ))}
           </select>
+          <button onClick={handleBack}>🔙 </button>
         </label>
       )}
     </div>

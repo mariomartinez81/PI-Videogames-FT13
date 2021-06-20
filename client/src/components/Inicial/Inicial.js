@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './Inical.css';
 const Inicial = () => {
   return (
-    <div>
+    <div className='inicial-page'>
       <NavLink to={`/home`}>
         <img src={neon_controller} alt='introImg' className='imgInicial' />
       </NavLink>

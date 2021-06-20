@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-const OrderedAZ = ({ gamesLoaded, handleOrderAZ }) => {
-  const orderingAZ = useSelector((state) => state.orderingAZ);
-  const dispatch = useDispatch();
+const AlphabeticOrder = () => {
+  const alphabeticOrdering = useSelector((state) => state.alphabeticOrdering);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    handleOrderAZ();
-  }, [gamesLoaded, handleOrderAZ]);
+  // useEffect(() => {
+  //   handleOrderAZ();
+  // }, [gamesLoaded, handleOrderAZ]);
   return (
     <div className='container'>
-      {orderingAZ &&
-        orderingAZ.map((game) =>
+      {alphabeticOrdering &&
+        alphabeticOrdering.results.map((game) =>
           game.image ? (
             <div key={game.id} className='gameContainer'>
               <NavLink to={`videogame/${game.id}`}>
@@ -45,7 +45,7 @@ const OrderedAZ = ({ gamesLoaded, handleOrderAZ }) => {
   );
 };
 
-export default OrderedAZ;
+export default AlphabeticOrder;
 
 /* 
    <div className='container'>

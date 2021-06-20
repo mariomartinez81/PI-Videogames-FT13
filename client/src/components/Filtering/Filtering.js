@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { alphabeticOrder, backUp, ratingOrder } from '../../actions';
+
 import './Filtering.css';
 
 const Filtering = () => {
-  const [filters, setFilters] = useState('');
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    setFilters(e.target.value);
+    if (e.target.value === 'A-Z' || e.target.value === 'Z-A') {
+      dispatch(alphabeticOrder(e.target.value));
+    } else if (
+      e.target.value === 'rating-highest' ||
+      e.target.value === 'rating-lowest'
+    ) {
+      dispatch(ratingOrder(e.target.value));
+    }
+    if (e.target.value === 'all') {
+      dispatch(dispatch(backUp()));
+    }
   };
 
   return (
@@ -17,8 +31,8 @@ const Filtering = () => {
         className='filter-select'
       >
         <option>all</option>
-        <option>ordering-AZ</option>
-        <option>ordering-ZA</option>
+        <option>A-Z</option>
+        <option>Z-A</option>
         <option>rating-highest</option>
         <option>rating-lowest</option>
       </select>

@@ -1,33 +1,47 @@
-// const { Videogame, Genre } = require('../db.js');
-// const axios = require('axios').default;
-// const key = 'e05aeb3a65a04f699125f7dfe5318bd6';
 const getGames = require('./handlers/getGames.js');
 const pagination = require('./handlers/pagination.js');
 const getGamesByName = require('./handlers/getGamesByName.js');
+const filteringGenre = require('./handlers/filteringGenre');
+const filteringAZ = require('./handlers/filteringAlphabetic');
+const filterinRating = require('./handlers/filteringRating.js');
 
 async function getVideoGames(req, res) {
-  const { name, genre } = req.query;
+  const { name, genre, order, rating } = req.query;
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 15;
 
   try {
     if (genre) {
       const totalGames = await getGames();
-      let matchGenre = totalGames
-        .map((game) => {
-          let array = [];
-          for (let item of game.genre) {
-            if (item.name === genre) array.push(game);
-          }
-          return array;
-        })
-        .filter((ele) => ele.length > 0)
-        .flat(Infinity);
-      const test = pagination(matchGenre, page, limit, genre);
-      res.json(test);
+      const gamesByGenre = filteringGenre(totalGames, genre);
+      const resultByGenre = pagination(gamesByGenre, page, limit, genre);
+      res.json(resultByGenre);
     } else if (name) {
       const gamesByName = await getGamesByName(name);
       res.json(gamesByName);
+    } else if (order) {
+      const totalGames = await getGames();
+      const gamesAlphabetic = filteringAZ(totalGames, order);
+      const resultOrdering = pagination(
+        gamesAlphabetic,
+        page,
+        limit,
+        false,
+        order
+      );
+      res.json(resultOrdering);
+    } else if (rating) {
+      const totalGames = await getGames();
+      const ratingsGames = filterinRating(totalGames, rating);
+      const resultsRatingOrder = pagination(
+        ratingsGames,
+        page,
+        limit,
+        false,
+        false,
+        rating
+      );
+      res.json(resultsRatingOrder);
     }
 
     const totalGames = await getGames();

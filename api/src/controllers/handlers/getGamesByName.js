@@ -7,7 +7,7 @@ const getGamesByName = async (name) => {
   const games = await axios.get(
     `https://api.rawg.io/api/games?search=${name}&&key=${key}`
   );
-  const findGames = games.data.results.slice(0, 15);
+  const findGames = games.data.results;
   findGames.forEach((game) => {
     let videoGame = {
       id: game.id, //

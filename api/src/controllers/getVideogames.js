@@ -18,7 +18,8 @@ async function getVideoGames(req, res) {
       res.json(resultByGenre);
     } else if (name) {
       const gamesByName = await getGamesByName(name);
-      res.json(gamesByName);
+      const resultByName = pagination(gamesByName, page, limit, false, name);
+      res.json(resultByName);
     } else if (order) {
       const totalGames = await getGames();
       const gamesAlphabetic = filteringAZ(totalGames, order);
@@ -26,6 +27,7 @@ async function getVideoGames(req, res) {
         gamesAlphabetic,
         page,
         limit,
+        false,
         false,
         order
       );
@@ -37,6 +39,7 @@ async function getVideoGames(req, res) {
         ratingsGames,
         page,
         limit,
+        false,
         false,
         false,
         rating

@@ -13,7 +13,7 @@ const NavBar = () => {
       <NavLink to='/home' className='navRef'>
         Home 🏠
       </NavLink>
-      <NavLink to='/favs' className='navRef'>
+      <NavLink to='/favorites' className='navRef'>
         Favorites 🌟
       </NavLink>
       <Search />

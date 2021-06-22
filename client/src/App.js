@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import Detail from './components/Detail/Detail';
 import NavBar from './components/NavBar/NavBar';
 import Form from './components/Form/Form';
+import Favorites from './components/Favorites/Favorites';
 
 import { Route } from 'react-router-dom';
 
@@ -25,12 +26,14 @@ function App() {
         <Detail />
       </Route>
 
-      <Route exact path='/creategame' component={Form}>
+      <Route exact path='/creategame'>
         <NavBar />
         <Form />
       </Route>
-      {/* <Route exact path='/videogame/:id' component={Detail} />
-      <Route exact path='/creategame' component={Form} /> */}
+      <Route exact path='/favorites'>
+        <NavBar />
+        <Favorites />
+      </Route>
     </div>
   );
 }

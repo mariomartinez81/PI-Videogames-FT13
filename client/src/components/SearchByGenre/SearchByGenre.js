@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { backUp, filterGenre, getGenres } from '../../actions';
+import { backUp, filterGenre, getGenres, setPage } from '../../actions';
 import './SearchByGenre.css';
 
 const SearchByGenre = () => {
@@ -13,6 +13,7 @@ const SearchByGenre = () => {
 
   const handleBack = () => {
     dispatch(backUp());
+    dispatch(setPage(1));
     document.querySelector('#selector').value = -1;
   };
 

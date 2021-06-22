@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { backUp, getVideogamesByname } from '../../actions';
+import { backUp, getVideogamesByname, setPage } from '../../actions';
 import './Search.css';
 
 const Search = () => {
@@ -17,6 +17,7 @@ const Search = () => {
 
   const handleBack = () => {
     dispatch(backUp());
+    dispatch(setPage(1));
     document.querySelector('#inputSearch').value = '';
   };
   return (

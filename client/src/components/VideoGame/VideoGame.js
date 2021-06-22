@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { addFavorites } from '../../actions';
 import { pagination } from '../../utils/pagination';
 import './VideoGame.css';
 
@@ -8,6 +10,7 @@ const VideoGame = ({ data, page }) => {
   if (data) {
     renderData = pagination(data.results, page);
   }
+  const dispatch = useDispatch();
   return (
     <div className='container'>
       {renderData ? (
@@ -26,6 +29,22 @@ const VideoGame = ({ data, page }) => {
                   <li>{genre.name}</li>
                 </div>
               ))}
+
+              <span
+                onClick={() =>
+                  dispatch(
+                    addFavorites({
+                      name: game.name,
+                      id: game.id,
+                      image: game.image,
+                      rating: game.rating,
+                    })
+                  )
+                }
+                className='img-fav'
+              >
+                ⭐
+              </span>
             </div>
           ) : (
             <div key={game.id} className='gameContainer'>
@@ -41,6 +60,21 @@ const VideoGame = ({ data, page }) => {
                   <li>{genre.name}</li>
                 </div>
               ))}
+              <span
+                onClick={() =>
+                  dispatch(
+                    addFavorites({
+                      name: game.name,
+                      id: game.id,
+                      image: game.image,
+                      rating: game.rating,
+                    })
+                  )
+                }
+                className='img-fav'
+              >
+                ⭐
+              </span>
             </div>
           )
         )

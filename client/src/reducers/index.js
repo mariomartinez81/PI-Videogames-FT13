@@ -9,15 +9,18 @@ import {
   FILTERING_GENRE,
   ALPHABETIC_ORDERING,
   RATING_ORDERING,
+  SET_PAGE,
 } from '../actions';
+import { filteringALphabetic } from '../utils/filteringAlphabetic';
+import { filteringGenre } from '../utils/filteringGenre';
+import { filterinRating } from '../utils/filteringRating';
 
 const initialState = {
   gamesLoaded: undefined,
   type: 'all',
   gamesByName: {},
-  // gamesByGenre: {},
   gamesByGenre: {},
-  option: '',
+  page: 1,
   gameDetail: undefined,
   gamesGenres: [],
   alphabeticOrdering: {},
@@ -36,7 +39,7 @@ export default function rootReducers(state = initialState, action) {
     case GET_VIDEOGAMES_BY_NAME:
       return {
         ...state,
-        gamesByName: { ...action.payload },
+        gamesByName: { results: [...action.payload] },
         type: 'search',
         state,
       };
@@ -53,36 +56,13 @@ export default function rootReducers(state = initialState, action) {
         gamesGenres: [...action.payload],
       };
 
-    case BACK_GROUND:
-      return {
-        ...state,
-        type: action.payload,
-      };
-
-    // case FILTERING_GENRE:
-    //   return {
-    //     ...state,
-    //     type: 'byGenres',
-    //     gamesByGenre: { ...action.payload },
-    //   };
     case FILTERING_GENRE:
       return {
         ...state,
         type: 'byGenres',
-        option: action.option,
-        // gamesByGenre: { ...action.payload },
         gamesByGenre: {
           results: [
-            ...state.gamesLoaded.results
-              .map((game) => {
-                let array = [];
-                for (let item of game.genre) {
-                  if (item.name === action.payload) array.push(game);
-                }
-                return array;
-              })
-              .filter((ele) => ele.length > 0)
-              .flat(Infinity),
+            ...filteringGenre(state.gamesLoaded.results, action.payload),
           ],
         },
       };
@@ -90,15 +70,35 @@ export default function rootReducers(state = initialState, action) {
     case ALPHABETIC_ORDERING:
       return {
         ...state,
-        type: action.state,
-        alphabeticOrdering: { ...action.payload },
+        type: action.payload,
+        alphabeticOrdering: {
+          results: [
+            ...filteringALphabetic(state.gamesLoaded.results, action.payload),
+          ],
+        },
       };
 
     case RATING_ORDERING:
       return {
         ...state,
-        type: action.state,
-        ratingOrdering: { ...action.payload },
+        type: action.payload,
+        ratingOrdering: {
+          results: [
+            ...filterinRating(state.gamesLoaded.results, action.payload),
+          ],
+        },
+      };
+
+    case BACK_GROUND:
+      return {
+        ...state,
+        type: action.payload,
+      };
+
+    case SET_PAGE:
+      return {
+        ...state,
+        page: action.payload,
       };
 
     case ADD_FAVORITES:
@@ -118,3 +118,17 @@ export default function rootReducers(state = initialState, action) {
       return state;
   }
 }
+
+// case ALPHABETIC_ORDERING:
+//   return {
+//     ...state,
+//     type: action.state,
+//     alphabeticOrdering: { ...action.payload },
+//   };
+
+// case RATING_ORDERING:
+//   return {
+//     ...state,
+//     type: action.state,
+//     ratingOrdering: { ...action.payload },
+//   };

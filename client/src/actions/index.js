@@ -10,6 +10,7 @@ export const BACK_GROUND = 'BACK_GROUND';
 export const ADD_FAVORITES = 'ADD_FAVORITES';
 export const REMOVE_FAVORITES = 'REMOVE_FAVORITES';
 export const FILTERING_GENRE = 'FILTERING_GENRE';
+export const SET_PAGE = 'SET_PAGE';
 //ordering
 export const ALPHABETIC_ORDERING = 'ALPHABETIC_ORDERING';
 export const RATING_ORDERING = 'RATING_ORDERING';
@@ -81,6 +82,30 @@ export const getGenres = () => async (dispatch) => {
   }
 };
 
+export const filterGenre = (payload) => ({
+  type: FILTERING_GENRE,
+  payload,
+});
+
+export const alphabeticOrder = (payload) => ({
+  type: ALPHABETIC_ORDERING,
+  payload,
+});
+export const ratingOrder = (payload) => ({
+  type: RATING_ORDERING,
+  payload,
+});
+
+export const addFavorites = (payload) => ({
+  type: ADD_FAVORITES,
+  payload,
+});
+
+export const removeFavorites = (payload) => ({
+  type: REMOVE_FAVORITES,
+  payload,
+});
+
 export const clearDetail = () => ({
   type: GET_DETAIL,
   payload: undefined,
@@ -91,40 +116,42 @@ export const backUp = () => ({
   payload: 'all',
 });
 
-// export const filterGenre = (payload) => async (dispatch) => {
-//   try {
-//     const gamesByGenres = await axios.get(
-//       `http://localhost:3001/videogames?genre=${payload}`
-//     );
-//     const response = gamesByGenres.data;
-//     const filterResponse = response
-//       .map((game) => {
-//         let array = [];
-//         for (let item of game.genre) {
-//           if (item.name === payload) array.push(game);
-//         }
-//         return array;
-//       })
-//       .filter((ele) => ele.length > 0)
-//       .flat(Infinity);
-
-//     const finalResponse = { results: filterResponse };
-//     dispatch({
-//       type: FILTERING_GENRE,
-//       option: payload,
-//       payload: finalResponse,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-export const filterGenre = (payload) => ({
-  type: FILTERING_GENRE,
-  option: payload,
+export const setPage = (payload) => ({
+  type: SET_PAGE,
   payload,
 });
 
-export const alphabeticOrder = (payload, url) => async (dispatch) => {
+//backend filtering
+
+/* export const filterGenre = (payload) => async (dispatch) => {
+  try {
+    const gamesByGenres = await axios.get(
+      `http://localhost:3001/videogames?genre=${payload}`
+    );
+    const response = gamesByGenres.data;
+    const filterResponse = response
+      .map((game) => {
+        let array = [];
+        for (let item of game.genre) {
+          if (item.name === payload) array.push(game);
+        }
+        return array;
+      })
+      .filter((ele) => ele.length > 0)
+      .flat(Infinity);
+
+    const finalResponse = { results: filterResponse };
+    dispatch({
+      type: FILTERING_GENRE,
+      option: payload,
+      payload: finalResponse,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}; */
+
+/* export const alphabeticOrder = (payload, url) => async (dispatch) => {
   if (!url) {
     try {
       const alphabeticGames = await axios.get(
@@ -153,8 +180,9 @@ export const alphabeticOrder = (payload, url) => async (dispatch) => {
     }
   }
 };
+ */
 
-export const ratingOrder = (payload, url) => async (dispatch) => {
+/* export const ratingOrder = (payload, url) => async (dispatch) => {
   if (!url) {
     try {
       const ratingGames = await axios.get(
@@ -182,43 +210,4 @@ export const ratingOrder = (payload, url) => async (dispatch) => {
       console.error(error);
     }
   }
-};
-
-export const addFavorites = (payload) => ({
-  type: ADD_FAVORITES,
-  payload,
-});
-
-export const removeFavorites = (payload) => ({
-  type: REMOVE_FAVORITES,
-  payload,
-});
-
-// Genre ordering from back
-// export const filterGenre = (payload, url) => async (dispatch) => {
-//   if (!url) {
-//     try {
-//       const gamesByGenres = await axios.get(
-//         `http://localhost:3001/videogames?genre=${payload}`
-//       );
-//       const response = gamesByGenres.data;
-//       dispatch({
-//         type: FILTERING_GENRE,
-//         payload: response,
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   } else {
-//     try {
-//       const gamesByGenres = await axios.get(`${url}`);
-//       const response = gamesByGenres.data;
-//       dispatch({
-//         type: FILTERING_GENRE,
-//         payload: response,
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// };
+}; */

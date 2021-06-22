@@ -1,12 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  alphabeticOrder,
-  filterGenre,
-  getVideogames,
-  getVideogamesByname,
-  ratingOrder,
-} from '../../actions';
+import { getVideogames, setPage } from '../../actions';
 //components
 
 import Pagination from '../Pagination/Pagination';
@@ -30,9 +24,7 @@ const Home = () => {
   const alphabeticOrdering = useSelector((state) => state.alphabeticOrdering);
   const ratingOrdering = useSelector((state) => state.ratingOrdering);
   const type = useSelector((state) => state.type);
-  // const option = useSelector((state) => state.option);
-
-  const [page, setPage] = useState(1);
+  const page = useSelector((state) => state.page);
 
   const dispatch = useDispatch();
 
@@ -41,34 +33,11 @@ const Home = () => {
   }, [dispatch, type]);
   //handles paginations
   const handleNext = () => {
-    setPage((page) => page + 1);
-    // if (type === 'byGenres') {
-    //   dispatch(filterGenre(option, 2));
-    // }
-    // else if (type === 'A-Z' || type === 'Z-A') {
-    //   dispatch(alphabeticOrder(false, alphabeticOrdering.next_page));
-    // } else if (type === 'rating-highest' || type === 'rating-lowest') {
-    //   dispatch(ratingOrder(false, ratingOrdering.next_page));
-    // } else if ('search') {
-    //   dispatch(getVideogamesByname(false, gamesByName.next_page));
-    // } else if ('all') {
-    //   dispatch(getVideogames(gamesLoaded.next_page));
-    // }
+    dispatch(setPage(page + 1));
   };
   const handlePrev = () => {
-    setPage((page) => page - 1);
-    // if (type === 'byGenres') {
-    //   dispatch(filterGenre(option, 1));
-    // }
-    // else if (type === 'rating-highest' || type === 'rating-lowest') {
-    //   dispatch(ratingOrder(false, ratingOrdering.previous_page));
-    // } else if ('search') {
-    //   dispatch(getVideogamesByname(false, gamesByName.previous_page));
-    // } else if ('all') {
-    //   dispatch(getVideogames(gamesLoaded.previous_page));
-    // }
+    dispatch(setPage(page - 1));
   };
-
   return (
     <>
       <h1>🎮 Video Games 🎮</h1>
@@ -87,6 +56,10 @@ const Home = () => {
 
       {/* <Filtering /> */}
 
+      {type === 'all' && <VideoGame data={gamesLoaded} page={page} />}
+
+      {type === 'search' && <VideoGame data={gamesByName} page={page} />}
+
       {type === 'byGenres' && (
         <>
           <VideoGame data={gamesByGenre} page={page} />
@@ -94,16 +67,13 @@ const Home = () => {
       )}
 
       {type === 'A-Z' || type === 'Z-A' ? (
-        <VideoGame data={alphabeticOrdering} />
+        <VideoGame data={alphabeticOrdering} page={page} />
       ) : null}
 
       {type === 'rating-highest' || type === 'rating-lowest' ? (
-        <VideoGame data={ratingOrdering} />
+        <VideoGame data={ratingOrdering} page={page} />
       ) : null}
 
-      {type === 'search' && <VideoGame data={gamesByName} />}
-
-      {type === 'all' && <VideoGame data={gamesLoaded} page={page} />}
       <div className='pagination'>
         <Pagination next={handleNext} prev={handlePrev} />
       </div>

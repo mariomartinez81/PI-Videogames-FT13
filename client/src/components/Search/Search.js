@@ -17,16 +17,17 @@ const Search = () => {
 
   const handleBack = () => {
     dispatch(backUp());
+    document.querySelector('#inputSearch').value = '';
   };
   return (
     <>
       <div>
-        {/* <h1>🎮 Video Games 🎮</h1> */}
         <input
           type='text'
           placeholder='search game by name'
           onChange={handleChanges}
           className='search-videogame'
+          id='inputSearch'
         />
         <button onClick={handleClick}>🏸</button>
         <button onClick={handleBack}>🔙 </button>

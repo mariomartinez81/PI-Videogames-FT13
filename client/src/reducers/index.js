@@ -14,13 +14,14 @@ import {
 const initialState = {
   gamesLoaded: undefined,
   type: 'all',
-  gamesByName: [],
+  gamesByName: {},
+  // gamesByGenre: {},
   gamesByGenre: {},
+  option: '',
   gameDetail: undefined,
   gamesGenres: [],
   alphabeticOrdering: {},
   ratingOrdering: {},
-
   gamesFavorites: [],
 };
 
@@ -29,13 +30,13 @@ export default function rootReducers(state = initialState, action) {
     case GET_VIDEOGAMES:
       return {
         ...state,
-        gamesLoaded: { ...action.payload },
+        gamesLoaded: { results: [...action.payload] },
       };
 
     case GET_VIDEOGAMES_BY_NAME:
       return {
         ...state,
-        gamesByName: [...action.payload],
+        gamesByName: { ...action.payload },
         type: 'search',
         state,
       };
@@ -58,11 +59,32 @@ export default function rootReducers(state = initialState, action) {
         type: action.payload,
       };
 
+    // case FILTERING_GENRE:
+    //   return {
+    //     ...state,
+    //     type: 'byGenres',
+    //     gamesByGenre: { ...action.payload },
+    //   };
     case FILTERING_GENRE:
       return {
         ...state,
         type: 'byGenres',
-        gamesByGenre: { ...action.payload },
+        option: action.option,
+        // gamesByGenre: { ...action.payload },
+        gamesByGenre: {
+          results: [
+            ...state.gamesLoaded.results
+              .map((game) => {
+                let array = [];
+                for (let item of game.genre) {
+                  if (item.name === action.payload) array.push(game);
+                }
+                return array;
+              })
+              .filter((ele) => ele.length > 0)
+              .flat(Infinity),
+          ],
+        },
       };
 
     case ALPHABETIC_ORDERING:

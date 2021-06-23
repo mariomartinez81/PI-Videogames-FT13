@@ -4,8 +4,23 @@
 }
 
 .search-select {
-  border: 1px solid #393939;
-  border-radius: 5px 5px 5px 5px;
-  color: #2b2626;
-  box-shadow: 3px 3px 10px #ab38e0;
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Super Mario 256';
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 300;
+  color: #313133;
+  background: #4fd1c5;
+  background: linear-gradient(90deg, #ffffff 0%, #cdfffa 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px #4fd1c5a3;
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  transform: scale(0.7, 0.7);
 }

@@ -5,14 +5,8 @@ import { getVideogames, setPage } from '../../actions';
 
 import Pagination from '../Pagination/Pagination';
 import VideoGame from '../VideoGame/VideoGame';
-// import Filtering from '../Filtering/Filtering';
-
-// import Search from '../Search/Search';
-// import SearchByGenre from '../SearchByGenre/SearchByGenre';
-// import NavBar from '../NavBar/NavBar';
 
 //img
-import pacman from '../../assets/img/pacman.png';
 
 //css
 import './Home.css';
@@ -23,6 +17,7 @@ const Home = () => {
   const gamesByGenre = useSelector((state) => state.gamesByGenre);
   const alphabeticOrdering = useSelector((state) => state.alphabeticOrdering);
   const ratingOrdering = useSelector((state) => state.ratingOrdering);
+  const gamesCreated = useSelector((state) => state.gamesCreated);
   const type = useSelector((state) => state.type);
   const page = useSelector((state) => state.page);
 
@@ -38,24 +33,12 @@ const Home = () => {
   const handlePrev = () => {
     dispatch(setPage(page - 1));
   };
+
+  console.log(gamesCreated);
+
   return (
     <>
       <h1 className='h1'>VIDEO GAMES</h1>
-
-      {/* <NavBar /> */}
-      {/* <NavLink to='/creategame'>
-        <img
-          src={createGame}
-          alt='imgCreateGame'
-          width='20%'
-          className='imgCreateGame'
-        />
-      </NavLink> */}
-
-      {/* <Search /> */}
-      {/* <SearchByGenre gamesLoaded={gamesLoaded} /> */}
-
-      {/* <Filtering /> */}
 
       {type === 'all' && <VideoGame data={gamesLoaded} page={page} />}
 
@@ -74,6 +57,8 @@ const Home = () => {
       {type === 'rating-highest' || type === 'rating-lowest' ? (
         <VideoGame data={ratingOrdering} page={page} />
       ) : null}
+
+      {type === 'gamesCreated' && <VideoGame data={gamesCreated} page={page} />}
 
       <div className='pagination'>
         <Pagination next={handleNext} prev={handlePrev} />

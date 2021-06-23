@@ -22,7 +22,8 @@ const Input = ({ name, handleInput, type }) => {
     } else if (name === 'image' && !e.target.value.startsWith('http')) {
       setState({
         error: true,
-        messageError: 'Error: field should be contain link of image',
+        messageError:
+          'Error: field should be contain link of image and start with http//...',
       });
     } else {
       setState({
@@ -38,7 +39,7 @@ const Input = ({ name, handleInput, type }) => {
         <span>{name}</span>
         <input
           type={type}
-          placeholder='input name'
+          placeholder={`input ${name}`}
           name={name}
           className={state.error ? 'border-error' : 'style-input'}
           onInput={handleIn}

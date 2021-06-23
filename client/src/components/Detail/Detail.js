@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { clearDetail, getDetailVideoGame } from '../../actions';
+import { getDetailVideoGame } from '../../actions';
 import './Detail.css';
 
 const Detail = () => {
@@ -11,9 +11,6 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(getDetailVideoGame(id));
-    return () => {
-      dispatch(clearDetail());
-    };
   }, [dispatch, id]);
 
   return (

@@ -14,70 +14,44 @@ const VideoGame = ({ data, page }) => {
   return (
     <div className='container'>
       {renderData ? (
-        renderData.results.map((game) =>
-          Number.isInteger(Number(game.id)) ? (
-            <div key={game.id} className='gameContainer'>
-              <NavLink to={`videogame/${game.id}`}>
-                <img src={game.image} alt='game' className='imgGame' />
-              </NavLink>
-              <h3>{game.name}</h3>
-              <span>
-                <b>Rating:</b> {game.rating}
-              </span>
-              {game.genre.map((genre) => (
-                <div key={genre.id}>
-                  <li>{genre.name}</li>
-                </div>
-              ))}
+        renderData.results.map((game) => (
+          <div key={game.id} className='gameContainer'>
+            <NavLink to={`videogame/${game.id}`}>
+              <img src={game.image} alt='game' className='imgGame' />
+            </NavLink>
+            <h3>{game.name}</h3>
+            <span>
+              <b>Rating:</b> {game.rating}
+            </span>
+            {game.genre
+              ? game.genre.map((genre) => (
+                  <div key={genre.id}>
+                    <li>{genre.name}</li>
+                  </div>
+                ))
+              : game.Genres.map((genre) => (
+                  <div key={genre.id}>
+                    <li>{genre.name}</li>
+                  </div>
+                ))}
 
-              <span
-                onClick={() =>
-                  dispatch(
-                    addFavorites({
-                      name: game.name,
-                      id: game.id,
-                      image: game.image,
-                      rating: game.rating,
-                    })
-                  )
-                }
-                className='img-fav'
-              >
-                ⭐
-              </span>
-            </div>
-          ) : (
-            <div key={game.id} className='gameContainer'>
-              <NavLink to={`videogame/${game.id}`}>
-                <img src={game.image} alt='game' className='imgGame' />
-              </NavLink>
-              <h3>{game.name}</h3>
-              <span>
-                <b>Rating:</b> {game.rating}
-              </span>
-              {game.Genres.map((genre) => (
-                <div key={genre.id}>
-                  <li>{genre.name}</li>
-                </div>
-              ))}
-              <span
-                onClick={() =>
-                  dispatch(
-                    addFavorites({
-                      name: game.name,
-                      id: game.id,
-                      image: game.image,
-                      rating: game.rating,
-                    })
-                  )
-                }
-                className='img-fav'
-              >
-                ⭐
-              </span>
-            </div>
-          )
-        )
+            <figure
+              onClick={() =>
+                dispatch(
+                  addFavorites({
+                    name: game.name,
+                    id: game.id,
+                    image: game.image,
+                    rating: game.rating,
+                  })
+                )
+              }
+              className='img-fav'
+            >
+              ⭐
+            </figure>
+          </div>
+        ))
       ) : (
         <h1>Loading...</h1>
       )}

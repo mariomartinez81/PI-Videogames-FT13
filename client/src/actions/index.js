@@ -9,11 +9,12 @@ export const POST_VIDEOGAME = 'POST_VIDEOGAME';
 export const BACK_GROUND = 'BACK_GROUND';
 export const ADD_FAVORITES = 'ADD_FAVORITES';
 export const REMOVE_FAVORITES = 'REMOVE_FAVORITES';
-export const FILTERING_GENRE = 'FILTERING_GENRE';
 export const SET_PAGE = 'SET_PAGE';
 //ordering
+export const FILTERING_GENRE = 'FILTERING_GENRE';
 export const ALPHABETIC_ORDERING = 'ALPHABETIC_ORDERING';
 export const RATING_ORDERING = 'RATING_ORDERING';
+export const GAMES_CREATED = 'GAMES_CREATED';
 
 export const getVideogames = () => async (dispatch) => {
   try {
@@ -91,9 +92,15 @@ export const alphabeticOrder = (payload) => ({
   type: ALPHABETIC_ORDERING,
   payload,
 });
+
 export const ratingOrder = (payload) => ({
   type: RATING_ORDERING,
   payload,
+});
+
+export const getGamesCreated = () => ({
+  type: GAMES_CREATED,
+  payload: 'gamesCreated',
 });
 
 export const addFavorites = (payload) => ({
@@ -104,11 +111,6 @@ export const addFavorites = (payload) => ({
 export const removeFavorites = (payload) => ({
   type: REMOVE_FAVORITES,
   payload,
-});
-
-export const clearDetail = () => ({
-  type: GET_DETAIL,
-  payload: undefined,
 });
 
 export const backUp = () => ({

@@ -9,9 +9,11 @@ import {
   FILTERING_GENRE,
   ALPHABETIC_ORDERING,
   RATING_ORDERING,
+  GAMES_CREATED,
   SET_PAGE,
 } from '../actions';
 import { filteringALphabetic } from '../utils/filteringAlphabetic';
+import { filteringGamesCreated } from '../utils/filteringGamesCreated';
 import { filteringGenre } from '../utils/filteringGenre';
 import { filterinRating } from '../utils/filteringRating';
 
@@ -26,6 +28,7 @@ const initialState = {
   alphabeticOrdering: {},
   ratingOrdering: {},
   gamesFavorites: [],
+  gamesCreated: {},
 };
 
 export default function rootReducers(state = initialState, action) {
@@ -86,6 +89,15 @@ export default function rootReducers(state = initialState, action) {
           results: [
             ...filterinRating(state.gamesLoaded.results, action.payload),
           ],
+        },
+      };
+
+    case GAMES_CREATED:
+      return {
+        ...state,
+        type: action.payload,
+        gamesCreated: {
+          results: [...filteringGamesCreated(state.gamesLoaded.results)],
         },
       };
 

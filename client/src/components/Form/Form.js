@@ -39,7 +39,7 @@ const Form = () => {
 
   useEffect(() => {
     dispatch(getGenres());
-  }, [dispatch, alert]);
+  }, [dispatch, data, alert]);
 
   const handleInput = (e) => {
     setData({
@@ -103,11 +103,11 @@ const Form = () => {
             state={data}
           />
 
-          {/* {gamesGenres.filter((genre) =>
+          {gamesGenres.map((genre) =>
             genre.id == data.genres.filter((select) => select) ? (
               <li>{genre.name}</li>
             ) : null
-          )} */}
+          )}
           {/* {data.genres.map((genre, i) => (
             <li key={i}>{genre}</li>
           ))} */}

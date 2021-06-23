@@ -1,30 +1,7 @@
-.nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
-  padding: 5px;
-  background-attachment: fixed;
-  position: -webkit-sticky;
-  position: sticky;
-  background-image: url('https://i.imgur.com/R3cpQ9R.gif');
-  background-size: cover;
-}
-/* .navRef {
-  color: white;
-  text-shadow: 2px 2px 5px violet;
-}
-.navRef:hover {
-  color: aqua;
-  transform: scale(1.2, 1.2);
-  transition: transform 0.7s ease-in-out;
-  filter: saturate(200%);
-} */
-.navRef {
+.buttonGamesCreate {
   min-width: 300px;
   min-height: 60px;
+  /* font-family: 'Nunito', sans-serif; */
   font-family: 'Super Mario 256';
   font-size: 22px;
   text-transform: uppercase;
@@ -44,7 +21,7 @@
   transform: scale(0.7, 0.7);
 }
 
-.navRef::before {
+.buttonGamesCreate::before {
   content: '';
   border-radius: 1000px;
   min-width: calc(300px + 12px);
@@ -59,18 +36,46 @@
   transition: all 0.3s ease-in-out 0s;
 }
 
-.navRef:hover::before,
-.navRef:focus::before {
+.button:hover,
+.button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.buttonGamesCreate:hover::before,
+.buttonGamesCreate:focus::before {
   opacity: 1;
 }
 
-.imgCreateGame {
-  margin-top: 1rem;
-  width: 15rem;
-  margin-right: 1rem;
+.buttonGamesCreate::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid #00ffcb;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
 }
-.imgCreateGame:hover {
-  transform: scale(1.1, 1.1) rotate(25deg);
-  transition: transform 0.5s ease-in-out;
-  filter: saturate(180%);
+
+.buttonGamesCreate:hover::after,
+.buttonGamesCreate:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
 }

@@ -1,21 +1,73 @@
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.gameContainer {
-  margin: 1rem 1rem;
-}
-
-.imgGame {
-  width: 20rem;
-  height: 20rem;
-  margin: 0.5 rem;
-}
-.search-videogame {
+/* .search-videogame {
   border: 1px solid #393939;
   border-radius: 5px 5px 5px 5px;
   color: #2b2626;
   box-shadow: 3px 3px 10px #ab38e0;
+} */
+.search-div {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.btn-search {
+  border: transparent;
+  background: transparent;
+  position: absolute;
+  right: 20%;
+  top: 33%;
+}
+
+.btn-search:hover {
+  cursor: pointer;
+  border-radius: 1000px;
+  transform: scale(1.2, 1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.search-videogame {
+  min-width: 330px;
+  min-height: 40px;
+  font-family: 'Super Mario 256';
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4fd1c5;
+  background: linear-gradient(90deg, #ffffff 0%, #cdfffa 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px #4fd1c5a3;
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  transform: scale(0.7, 0.7);
+}
+
+.search-videogame:hover {
+  border: 7px solid #00ffcb;
+  box-shadow: 0 0 60px #00ffcba3;
+  filter: saturate(180%);
+}
+
+.search-videogame::before {
+  content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #00ffcb;
+  box-shadow: 0 0 60px #00ffcba3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.search-videogame:hover::before,
+.search-videogame:focus::before {
+  opacity: 1;
 }

@@ -1,5 +1,5 @@
 .detail {
-  background-color: #0e0d0db2;
+  background-color: #0e0d0d9a;
   display: flex;
   flex-direction: row-reverse;
   margin: 2rem;
@@ -9,9 +9,32 @@
 .imgDetail {
   width: 30rem;
   height: 20rem;
+  margin: 0px 2rem;
+  margin-top: 2rem;
+  border-radius: 5px;
   box-shadow: 7px 7px 6px white;
 }
 
 .infoDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: white;
+}
+
+.scripture-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h1-detail {
+  color: black;
+  text-shadow: 5px 5px 10px white;
+  font-size: 5rem;
+  /* font-family: 'CF Anarchy'; */
+  /* font-family: 'PaybAck'; */
+  /* font-family: 'Super Mario 256'; */
+  font-family: 'Urban Jungle';
+  /* font-family: 'Vehicle Breaks Down'; */
 }

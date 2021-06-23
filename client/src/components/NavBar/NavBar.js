@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './NavBar.css';
 import Search from '../Search/Search';
 import SearchByGenre from '../SearchByGenre/SearchByGenre';
-import createGame from '../../assets/img/createGame4.png';
+import createGame from '../../assets/img/create_game.png';
 import Filtering from '../Filtering/Filtering';
+import './NavBar.css';
 
 const NavBar = () => {
   return (

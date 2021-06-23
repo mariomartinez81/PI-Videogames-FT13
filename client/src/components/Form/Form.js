@@ -32,6 +32,7 @@ const Form = () => {
     description: '',
     released: '',
     rating: 0,
+    image: '',
     platforms: [],
     genres: [],
   });
@@ -82,6 +83,8 @@ const Form = () => {
         <Input name='description' type='text' handleInput={handleInput} />
         <Input name='released' type='date' handleInput={handleInput} />
         <Input name='rating' type='number' handleInput={handleInput} />
+
+        <Input name='image' type='text' handleInput={handleInput} />
         <>
           <Select
             name='platforms'
@@ -99,9 +102,15 @@ const Form = () => {
             handleSelect={handleSelectGenre}
             state={data}
           />
-          {data.genres.map((genre, i) => (
+
+          {/* {gamesGenres.filter((genre) =>
+            genre.id == data.genres.filter((select) => select) ? (
+              <li>{genre.name}</li>
+            ) : null
+          )} */}
+          {/* {data.genres.map((genre, i) => (
             <li key={i}>{genre}</li>
-          ))}
+          ))} */}
         </>
         <input type='submit' value='Submit' className='button' />
         {alert.create ? (

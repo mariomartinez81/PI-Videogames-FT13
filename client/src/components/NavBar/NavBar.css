@@ -1,14 +1,23 @@
 .nav {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: space-between;
+  align-content: center;
   padding: 5px;
-  background-attachment: scroll;
+  background-attachment: fixed;
+  position: -webkit-sticky;
   position: sticky;
   background-image: url('https://i.imgur.com/R3cpQ9R.gif');
   background-size: cover;
 }
 .navRef {
   color: white;
+  text-shadow: 2px 2px 5px violet;
+}
+.navRef:hover {
+  color: aqua;
+  transform: scale(1.2, 1.2);
+  transition: transform 0.7s ease-in-out;
+  filter: saturate(200%);
 }

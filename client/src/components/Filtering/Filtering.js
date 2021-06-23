@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { alphabeticOrder, backUp, ratingOrder } from '../../actions';
+import { alphabeticOrder, backUp, ratingOrder, setPage } from '../../actions';
 
 import './Filtering.css';
 
@@ -19,6 +19,7 @@ const Filtering = () => {
     }
     if (e.target.value === 'all') {
       dispatch(dispatch(backUp()));
+      dispatch(setPage(1));
     }
   };
 

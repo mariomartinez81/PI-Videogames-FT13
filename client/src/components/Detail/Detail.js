@@ -16,7 +16,6 @@ const Detail = () => {
     };
   }, [dispatch, id]);
 
-  console.log(gameDetail);
   return (
     <div className='detail'>
       {gameDetail === undefined ? (
@@ -24,35 +23,47 @@ const Detail = () => {
       ) : (
         <div className='infoDetail'>
           <img src={gameDetail.image} alt='imgDetail' className='imgDetail' />
-          <h1>{gameDetail.name}</h1>
-          <span>
-            <strong> 🌟 Rating:</strong> {gameDetail.rating}
-          </span>
-          <br />
-          <span>
-            {' '}
-            <strong> 📅 Relesed: </strong> {gameDetail.released}
-          </span>{' '}
-          <br />
-          <span>
-            <strong>🎮 Platforms:</strong>
-            {gameDetail.platforms.map((platform) => (
-              <div key={platform.platform.id}>
-                <li>{platform.platform.name}</li>
-              </div>
-            ))}
-          </span>
-          <br />
-          <span>
-            <strong>🎭 Genres:</strong>
-            {gameDetail.genre.map((genre) => (
-              <span key={genre.id}> {genre.name}/</span>
-            ))}
-          </span>
-          <p>
-            <strong> 📜 Description: </strong>
-            {gameDetail.description}
-          </p>
+          <div className='scripture-detail'>
+            <h1 className='h1-detail'>{gameDetail.name}</h1>
+            <span>
+              <strong> 🌟 Rating:</strong> {gameDetail.rating}
+            </span>
+            <br />
+            <span>
+              {' '}
+              <strong> 📅 Relesed: </strong> {gameDetail.released}
+            </span>{' '}
+            <br />
+            <span>
+              <strong>🎮 Platforms:</strong>
+              {gameDetail.platforms.map((platform) =>
+                platform.platform ? (
+                  <div key={platform.platform.id}>
+                    <li>{platform.platform.name}</li>
+                  </div>
+                ) : (
+                  <div key={platform.name}>
+                    <li>{platform}</li>
+                  </div>
+                )
+              )}
+            </span>
+            <br />
+            <span>
+              <strong>🎭 Genres:</strong>
+              {gameDetail.genre
+                ? gameDetail.genre.map((genre) => (
+                    <span key={genre.id}> {genre.name}/</span>
+                  ))
+                : gameDetail.Genres.map((genre) => (
+                    <span key={genre.id}> {genre.name}/</span>
+                  ))}
+            </span>
+            <p>
+              <strong> 📜 Description: </strong>
+              {gameDetail.description}
+            </p>
+          </div>
         </div>
       )}
     </div>

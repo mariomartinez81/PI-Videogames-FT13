@@ -1,19 +1,28 @@
 .inicial-page {
   margin: 0px 0px;
 
-  background-image: url('https://t3.ftcdn.net/jpg/03/23/88/08/360_F_323880864_TPsH5ropjEBo1ViILJmcFHJqsBzorxUB.jpg');
-  background-size: contain;
-  height: 200%;
-  opacity: 5;
+  /* background-image: url('https://t3.ftcdn.net/jpg/03/23/88/08/360_F_323880864_TPsH5ropjEBo1ViILJmcFHJqsBzorxUB.jpg'); */
+  /* background-image: url('https://media0.giphy.com/media/jow0htwvROxzepF0UZ/giphy.gif'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: -1;
+}
+
+.imgFull {
+  margin: 0px;
 }
 
 .imgInicial {
-  width: 30%;
+  width: 25%;
+  position: absolute;
+  top: 100%;
+  left: 40%;
 }
 
 .imgInicial:hover {
   /* transform: rotate(360deg); */
-  transform: scale(1.1, 1.1);
+  transform: scale(1.2, 1.2);
   transition: transform 0.5s ease-in-out;
   filter: saturate(250%);
 }

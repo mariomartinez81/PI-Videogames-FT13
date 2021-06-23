@@ -19,6 +19,11 @@ const Input = ({ name, handleInput, type }) => {
         messageError:
           'Error: required field, must contain at least fifteen characters',
       });
+    } else if (name === 'image' && !e.target.value.startsWith('http')) {
+      setState({
+        error: true,
+        messageError: 'Error: field should be contain link of image',
+      });
     } else {
       setState({
         error: false,

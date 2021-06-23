@@ -13,7 +13,7 @@ const Select = ({ name, data, handleSelect }) => {
         error: false,
         messageError: '',
       });
-    } else if (name === 'genres' && e.target.value.length > 3) {
+    } else if (name === 'genres' && e.target.value.length >= 1) {
       setStateSelect({
         error: false,
         messageError: '',
@@ -31,7 +31,9 @@ const Select = ({ name, data, handleSelect }) => {
           className={stateSelect.error ? 'selector-border' : 'selector'}
         >
           {data.map((ele, i) => (
-            <option key={i}>{ele.name}</option>
+            <option key={i} value={ele.id}>
+              {ele.name}
+            </option>
           ))}
         </select>
         {stateSelect.error && (

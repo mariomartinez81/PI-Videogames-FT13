@@ -32,3 +32,15 @@
   filter: saturate(180%);
   cursor: pointer;
 }
+
+h3 {
+  text-shadow: 1px 1px 5px #fc00009d;
+  font-size: 23px;
+  /* font-family: 'CF Anarchy'; */
+  /* font-family: 'PaybAck'; */
+  /* font-family: 'Super Mario 256'; */
+  font-family: 'Urban Jungle';
+  /* font-family: 'Vehicle Breaks Down'; */
+
+  white-space: wrap;
+}

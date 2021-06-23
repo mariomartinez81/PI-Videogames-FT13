@@ -12,7 +12,7 @@ import VideoGame from '../VideoGame/VideoGame';
 // import NavBar from '../NavBar/NavBar';
 
 //img
-// import createGame from '../../assets/img/createGame4.png';
+import pacman from '../../assets/img/pacman.png';
 
 //css
 import './Home.css';
@@ -40,7 +40,8 @@ const Home = () => {
   };
   return (
     <>
-      <h1>🎮 Video Games 🎮</h1>
+      <h1 className='h1'>VIDEO GAMES</h1>
+
       {/* <NavBar /> */}
       {/* <NavLink to='/creategame'>
         <img

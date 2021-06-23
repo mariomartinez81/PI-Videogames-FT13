@@ -7,7 +7,6 @@ import './Favorites.css';
 const Favorites = () => {
   const gamesFavorites = useSelector((state) => state.gamesFavorites);
   const dispatch = useDispatch();
-  console.log(gamesFavorites);
   return (
     <div className='container'>
       {gamesFavorites.map((game) =>

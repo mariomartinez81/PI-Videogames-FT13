@@ -22,7 +22,7 @@ const Search = () => {
           type='text'
           placeholder='search game by name'
           onChange={handleChanges}
-          className='search-videogame'
+          className='searchVideogame'
           id='inputSearch'
         ></input>
         <button onClick={handleClick} className='btn-search'>

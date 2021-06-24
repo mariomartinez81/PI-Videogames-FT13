@@ -14,7 +14,7 @@ const VideoGame = ({ data, page }) => {
   }
 
   return (
-    <div data-testid='videogames-card' className='container'>
+    <div data-testid='videogames-card' className='container-game'>
       {renderData ? (
         renderData.results.map((game) => (
           <div key={game.id} className='gameContainer'>

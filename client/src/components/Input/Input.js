@@ -25,6 +25,11 @@ const Input = ({ name, handleInput, type }) => {
         messageError:
           'Error: field should be contain link of image and start with http//...',
       });
+    } else if (name === 'rating' && e.target.value > parseFloat(5.0)) {
+      setState({
+        error: true,
+        messageError: 'Error: the rating must be a number between 0 and 5',
+      });
     } else {
       setState({
         error: false,
@@ -44,6 +49,7 @@ const Input = ({ name, handleInput, type }) => {
           className={state.error ? 'border-error' : 'style-input'}
           onInput={handleIn}
           onChange={handleInput}
+          step='0.1'
           data-testid='input-validation'
           required
         />

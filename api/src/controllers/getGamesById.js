@@ -5,10 +5,6 @@ const key = '94dfd75fcc314b709c02ac037e33c55a';
 async function getVideoGamesById(req, res) {
   const { id } = req.params;
   const idIsNumber = /^[0-9]+$/.test(id);
-  // const idIsUUID =
-  //   /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/.test(
-  //     id
-  //   );
 
   if (idIsNumber) {
     try {
@@ -55,3 +51,8 @@ async function getVideoGamesById(req, res) {
 }
 
 module.exports = getVideoGamesById;
+
+// const idIsUUID =
+//   /[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}/.test(
+//     id
+//   );

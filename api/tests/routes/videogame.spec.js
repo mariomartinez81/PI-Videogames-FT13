@@ -110,6 +110,8 @@ describe('Videogame routes', () => {
         .post('/videogame')
         .send({
           name: 'Juegazo',
+          image:
+            'https://as.com/meristation/imagenes/2019/12/13/noticias/1576215017_644993_1576215066_noticia_normal.jpg',
           description: 'This is a demo game for beginners gamers',
           relesead: '2021-06-10',
           rating: 4.5,
@@ -120,6 +122,8 @@ describe('Videogame routes', () => {
         .expect((res) => {
           expect(res.body).toEqual({
             name: 'Juegazo',
+            image:
+              'https://as.com/meristation/imagenes/2019/12/13/noticias/1576215017_644993_1576215066_noticia_normal.jpg',
             description: 'This is a demo game for beginners gamers',
             relesead: '2021-06-10',
             rating: 4.5,

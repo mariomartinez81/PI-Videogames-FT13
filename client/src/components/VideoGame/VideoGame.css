@@ -1,12 +1,15 @@
-.container {
+.container-game {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .gameContainer {
-  margin: 1rem 1rem;
+  margin: 3rem 1rem;
   border-radius: 10px;
+  width: min-content;
+  height: min-content;
 }
 
 .imgGame {

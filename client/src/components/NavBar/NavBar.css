@@ -12,57 +12,6 @@
   background-image: url('https://i.imgur.com/R3cpQ9R.gif');
   background-size: cover;
 }
-/* .navRef {
-  color: white;
-  text-shadow: 2px 2px 5px violet;
-}
-.navRef:hover {
-  color: aqua;
-  transform: scale(1.2, 1.2);
-  transition: transform 0.7s ease-in-out;
-  filter: saturate(200%);
-} */
-.navRef {
-  min-width: 300px;
-  min-height: 60px;
-  font-family: 'Super Mario 256';
-  font-size: 22px;
-  text-transform: uppercase;
-  letter-spacing: 1.3px;
-  font-weight: 700;
-  color: #313133;
-  background: #4fd1c5;
-  background: linear-gradient(90deg, #81e6d9 0%, #4fd1c5 100%);
-  border: none;
-  border-radius: 1000px;
-  box-shadow: 12px 12px 24px #4fd1c5a3;
-  transition: all 0.3s ease-in-out 0s;
-  cursor: pointer;
-  outline: none;
-  position: relative;
-  padding: 10px;
-  transform: scale(0.7, 0.7);
-}
-
-.navRef::before {
-  content: '';
-  border-radius: 1000px;
-  min-width: calc(300px + 12px);
-  min-height: calc(60px + 12px);
-  border: 6px solid #00ffcb;
-  box-shadow: 0 0 60px #00ffcba3;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: all 0.3s ease-in-out 0s;
-}
-
-.navRef:hover::before,
-.navRef:focus::before {
-  opacity: 1;
-}
 
 .imgCreateGame {
   margin-top: 1rem;

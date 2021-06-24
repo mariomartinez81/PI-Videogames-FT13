@@ -37,9 +37,9 @@
 .h1 {
   text-shadow: 1px 1px 5px #fc00009d;
   font-size: 5rem;
-  font-family: 'CF Anarchy';
+  /* font-family: 'CF Anarchy'; */
   /* font-family: 'PaybAck'; */
-  /* font-family: 'Super Mario 256'; */
+  font-family: 'Super Mario 256';
   /* font-family: 'Urban Jungle'; */
   /* font-family: 'Vehicle Breaks Down'; */
 }

@@ -12,7 +12,6 @@ import { Route } from 'react-router-dom';
 function App() {
   return (
     <div className='App'>
-      My Project
       <Route exact path='/'>
         <Inicial />
       </Route>

@@ -19,7 +19,6 @@ describe('<Input />', () => {
 
   test('button contain attribute disabled', () => {
     const button = component.getByTestId('btnCreated');
-    expect(button).toHaveAttribute('disabled');
     expect(button).not.toHaveAttribute('type', 'button');
   });
 

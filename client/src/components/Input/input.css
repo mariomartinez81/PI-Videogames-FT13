@@ -1,6 +1,7 @@
 .input-component {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  align-items: center;
 
   margin: 10px 0px;
   padding: 5px;
@@ -8,13 +9,27 @@
   /* height: 3.5rem; */
   width: 12rem;
   border-radius: 5px;
-  /* background: slategrey; */
 }
 
 .style-input {
-  border: 1px solid grey;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px grey;
+  min-width: 300px;
+  min-height: 30px;
+  font-family: 'Super Mario 256';
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 300;
+  color: #313133;
+  background: #4fd1c5;
+  background: linear-gradient(90deg, #ffffff 0%, #cdfffa 100%);
+  border: 6px solid #00ffcb;
+  border-radius: 1000px;
+  box-shadow: 0 0 60px #00ffcba3;
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  padding: 10px;
+  transform: scale(0.7, 0.7);
 }
 
 .input-error {
@@ -23,5 +38,25 @@
 }
 
 .border-error {
-  border: 1px solid red;
+  min-width: 300px;
+  min-height: 30px;
+  font-size: 15px;
+  font-family: 'Super Mario 256';
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 300;
+  color: #313133;
+  background: #4fd1c5;
+  background: linear-gradient(90deg, #fafafa 0%, #ffa2a2 100%);
+  border: 0.5px solid red;
+  border-radius: 1000px;
+  /* box-shadow: 12px 12px 24px #d14f4fa3; */
+  box-shadow: 0 0 60px #ff0000a3;
+
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  padding: 10px;
+  transform: scale(0.7, 0.7);
+  transition: transform 0.3s ease-in-out;
 }

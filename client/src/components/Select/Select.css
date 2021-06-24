@@ -1,6 +1,7 @@
 .container-selector {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  align-items: center;
   margin-top: 10px;
   padding: 5px;
   border-radius: 5px;
@@ -19,56 +20,37 @@
   color: #313133;
   background: #4fd1c5;
   background: linear-gradient(90deg, #ffffff 0%, #cdfffa 100%);
-  border: none;
+  border: 6px solid #00ffcb;
   border-radius: 1000px;
-  box-shadow: 12px 12px 24px #4fd1c5a3;
+  box-shadow: 0 0 60px #00ffcba3;
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;
-  /* position: relative; */
   padding: 10px;
   transform: scale(0.7, 0.7);
 }
 
-/* 
-.selector {
-  margin: 10px;
-  background: rgb(221, 221, 221);
-  background: linear-gradient(
-    45deg,
-    rgba(128, 0, 128, 0.582),
-    rgba(0, 255, 255, 0.582)
-  );
-  border: 1px solid #393939;
-  border-radius: 5px 5px 5px 5px;
-  color: #2b2626;
-  box-shadow: 3px 3px 3px grey;
-  /* font-size: 12px; */
-/* padding: 5px; */
-/* }  */
-
 .input-error {
   color: red;
+  font-family: 'Super Mario 256';
+  letter-spacing: 2px;
 }
 
-/* .selector-error {
-  border: 1px solid red;
-  border-radius: 5px;
-} */
 .selector-error {
   min-width: 300px;
   min-height: 60px;
+  font-size: 15px;
   font-family: 'Super Mario 256';
-  font-size: 18px;
   text-transform: uppercase;
-  letter-spacing: 1.3px;
-  font-weight: 300;
+  letter-spacing: 1.5px;
   color: #313133;
   background: #4fd1c5;
   background: linear-gradient(90deg, #fafafa 0%, #ffa2a2 100%);
-  border: none;
+  border: 0.5px solid red;
   border-radius: 1000px;
-  box-shadow: 12px 12px 24px #d14f4fa3;
+  /* box-shadow: 12px 12px 24px #d14f4fa3; */
+  box-shadow: 0 0 60px #ff0000a3;
+
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;

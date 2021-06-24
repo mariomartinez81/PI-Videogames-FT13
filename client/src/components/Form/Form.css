@@ -1,26 +1,53 @@
 h1 {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: 'Super Mario 256';
+  font-size: 2.5rem;
+  text-shadow: 5px 5px 30px #fc00009d;
 }
-
+.message--create {
+  font-family: 'Super Mario 256';
+  font-size: 2.5rem;
+  text-shadow: 0 0 60px #00ffcba3;
+}
 .containerForm {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-width: max-content;
-  /* background: tan; */
+  margin-top: 20px;
+  font-family: 'Super Mario 256';
 }
 
-.button {
-  border: 1px solid grey;
-  color: slategrey;
-  border-radius: 4px;
-  box-shadow: 3px 3px 3px grey;
-}
-
-.button:hover {
+.buttonSubmit {
+  min-width: 300px;
+  min-height: 60px;
+  /* font-family: 'Nunito', sans-serif; */
+  font-family: 'Super Mario 256';
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4fd1c5;
+  background: linear-gradient(90deg, #81e6d9 0%, #4fd1c5 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px #4fd1c5a3;
+  transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
-  transform: scale(1.1, 1.1);
-  transition: transform 0.2s ease-in;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  transform: scale(0.7, 0.7);
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.buttonSubmit:hover {
+  border: 6px solid #00ffcb;
+  box-shadow: 0 0 60px #00ffcba3;
+  background: linear-gradient(90deg, #c181e6 0%, #4fd1c5 100%);
+  transform: scale(0.8, 0.8);
+  transition: transform 0.3s ease-in-out;
 }

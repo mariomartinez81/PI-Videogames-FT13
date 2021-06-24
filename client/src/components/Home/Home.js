@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <>
-      <h1 className='h1'>VIDEO GAMES</h1>
+      <h1 className='h1'>🍄VIDEO GAMES🍄</h1>
 
       {type === 'all' && <VideoGame data={gamesLoaded} page={page} />}
 

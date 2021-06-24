@@ -14,7 +14,7 @@ const ButtonGamesCreated = () => {
         onClick={handleClick}
         className='buttonGamesCreate'
         data-testid='btnCreated'
-        disabled
+        // disabled
       >
         Games Created
       </button>

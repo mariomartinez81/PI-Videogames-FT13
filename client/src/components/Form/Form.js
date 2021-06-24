@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getGenres } from '../../actions';
 import Input from '../Input/Input';
 import Select from '../Select/Select';
-import './Form.css';
 import axios from 'axios';
+import Button from '../Button/Button';
+import { NavLink } from 'react-router-dom';
+import './Form.css';
 
 const platforms = [
   { name: 'XBox 360' },
@@ -73,57 +75,64 @@ const Form = () => {
       console.log(error);
     }
   };
-  //console.log(gamesGenres); //! pendiente remover este console.log()
 
   return (
     <div className='containerForm'>
-      <h1>Create a new video game</h1>
-      <form onSubmit={handleSubmit} className='style-form' data-testid='form'>
-        <Input name='name' type='text' handleInput={handleInput} />
-        <Input name='description' type='text' handleInput={handleInput} />
-        <Input name='released' type='date' handleInput={handleInput} />
-        <Input name='rating' type='number' handleInput={handleInput} />
+      <h1>
+        Create a new video game <br />
+        🎮
+      </h1>
 
-        <Input name='image' type='text' handleInput={handleInput} />
-        <>
-          <Select
-            name='platforms'
-            data={platforms}
-            handleSelect={handleSelectPlatforms}
-          />
-          {data.platforms.map((platform, i) => (
-            <li key={i}>{platform}</li>
-          ))}
-        </>
-        <>
-          <Select
-            name='genres'
-            data={gamesGenres}
-            handleSelect={handleSelectGenre}
-            state={data}
-          />
+      {alert.create ? (
+        <div className='create--confirm'>
+          <h3 className='message--create'>✨Game was created!✨</h3>
+          <NavLink to='/home'>
+            <Button title={'Go Back'} />
+          </NavLink>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className='style-form' data-testid='form'>
+          <Input name='name' type='text' handleInput={handleInput} />
+          <Input name='description' type='text' handleInput={handleInput} />
+          <Input name='released' type='date' handleInput={handleInput} />
+          <Input name='rating' type='number' handleInput={handleInput} />
 
-          {gamesGenres.map((genre) =>
-            genre.id == data.genres.filter((select) => select) ? (
-              <li>{genre.name}</li>
-            ) : null
-          )}
-          {/* {data.genres.map((genre, i) => (
+          <Input name='image' type='text' handleInput={handleInput} />
+          <>
+            <Select
+              name='platforms'
+              data={platforms}
+              handleSelect={handleSelectPlatforms}
+            />
+            {data.platforms.map((platform, i) => (
+              <li key={i}>{platform}</li>
+            ))}
+          </>
+          <>
+            <Select
+              name='genres'
+              data={gamesGenres}
+              handleSelect={handleSelectGenre}
+              state={data}
+            />
+
+            {gamesGenres.map((genre) =>
+              genre.id == data.genres.filter((select) => select) ? (
+                <li>{genre.name}</li>
+              ) : null
+            )}
+            {/* {data.genres.map((genre, i) => (
             <li key={i}>{genre}</li>
           ))} */}
-        </>
-        <input
-          type='submit'
-          value='Submit'
-          className='button'
-          data-testid='required-input-submit'
-        />
-        {alert.create ? (
-          <div className='create--confirm'>
-            <h3 className='message--create'>Game was created!</h3>
-          </div>
-        ) : null}
-      </form>
+          </>
+          <input
+            type='submit'
+            value='Submit'
+            className='buttonSubmit'
+            data-testid='required-input-submit'
+          />
+        </form>
+      )}
     </div>
   );
 };

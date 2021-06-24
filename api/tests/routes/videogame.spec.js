@@ -2,7 +2,6 @@
 const { expect } = require('chai');
 const session = require('supertest-session');
 const app = require('../../src/app.js');
-// var supertest = require('supertest-as-promised')(require('../../src/app'));
 const { Videogame, conn, Genre } = require('../../src/db.js');
 
 const agent = session(app);
@@ -34,6 +33,7 @@ describe('Videogame routes', () => {
       Videogame.create(videogame);
       agent.get('/videogames').expect(200);
     });
+
     it('should get 200 and and contain 15 video games', () => {
       agent
         .get('/videogames')

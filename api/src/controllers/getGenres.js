@@ -1,4 +1,4 @@
-const { Videogame, Genre } = require('../db.js');
+const { Genre } = require('../db.js');
 async function getVideoGamesGenders(req, res) {
   try {
     const genresDB = await Genre.findAll();
@@ -17,15 +17,5 @@ async function getVideoGamesGenders(req, res) {
     return res.status(500).json({ error: 'Something goes wrong 😥' });
   }
 }
-// if (typesDB.length === 0) {
-//   let typesRes = await axios(`https://pokeapi.co/api/v2/type`);
-//   var types = typesRes.data.results.map((type) => {
-//     return { name: type.name };
-//   });
-//   //guardar types en la BD
-//   Type.bulkCreate(types);
-//   return res.json(types);
-// }
-// res.json(typesDB);
 
 module.exports = getVideoGamesGenders;

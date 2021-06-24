@@ -1,6 +1,6 @@
 const { Videogame, Genre } = require('../../db');
 const axios = require('axios').default;
-const key = 'e05aeb3a65a04f699125f7dfe5318bd6';
+const key = '94dfd75fcc314b709c02ac037e33c55a';
 
 const getGames = async () => {
   let allGames = [];
@@ -22,7 +22,7 @@ const getGames = async () => {
 
   allGames.forEach((game) => {
     let videoGame = {
-      id: game.id, //
+      id: game.id,
       name: game.name,
       image: game.background_image,
       genre: game.genres,

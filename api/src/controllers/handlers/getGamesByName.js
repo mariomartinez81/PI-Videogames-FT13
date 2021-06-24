@@ -1,6 +1,6 @@
 const { Videogame, Genre } = require('../../db');
 const axios = require('axios').default;
-const key = 'e05aeb3a65a04f699125f7dfe5318bd6';
+const key = '94dfd75fcc314b709c02ac037e33c55a';
 
 const getGamesByName = async (name) => {
   let gameByName = [];

@@ -10,7 +10,12 @@ const ButtonGamesCreated = () => {
   };
   return (
     <>
-      <button onClick={handleClick} className='buttonGamesCreate'>
+      <button
+        onClick={handleClick}
+        className='buttonGamesCreate'
+        data-testid='btnCreated'
+        disabled
+      >
         Games Created
       </button>
     </>

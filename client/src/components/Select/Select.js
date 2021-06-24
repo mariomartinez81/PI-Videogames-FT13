@@ -22,13 +22,15 @@ const Select = ({ name, data, handleSelect }) => {
   };
   return (
     <div className='container-selector'>
-      <label htmlFor=''>
+      <label htmlFor='' datatestid='label-select'>
         {name} <br />
         <select
           name={name}
           onChange={handleInput}
           onInput={handleSelect}
           className={stateSelect.error ? 'selector-error' : 'selector'}
+          data-testid='select-validation'
+          required
         >
           <option>---</option>
           {data.map((ele, i) => (

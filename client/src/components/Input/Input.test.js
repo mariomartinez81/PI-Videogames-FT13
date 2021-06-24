@@ -20,7 +20,7 @@ describe('<Input />', () => {
   });
 
   test('input is element required', () => {
-    const input = component.getByTestId('input-valitation');
+    const input = component.getByTestId('input-validation');
     expect(input).toBeRequired();
   });
 
@@ -35,8 +35,8 @@ describe('<Input />', () => {
   });
 
   test('label contain a input', () => {
-    const div = component.getByTestId('div-input');
-    const input = component.getByTestId('input-valitation');
+    const div = component.getByTestId('label-input');
+    const input = component.getByTestId('input-validation');
     expect(div).toContainElement(input);
   });
 });

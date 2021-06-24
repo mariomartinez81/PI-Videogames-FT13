@@ -28,8 +28,9 @@ const Select = ({ name, data, handleSelect }) => {
           name={name}
           onChange={handleInput}
           onInput={handleSelect}
-          className={stateSelect.error ? 'selector-border' : 'selector'}
+          className={stateSelect.error ? 'selector-error' : 'selector'}
         >
+          <option>---</option>
           {data.map((ele, i) => (
             <option key={i} value={ele.id}>
               {ele.name}

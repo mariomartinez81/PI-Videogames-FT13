@@ -6,13 +6,15 @@ import { pagination } from '../../utils/pagination';
 import './VideoGame.css';
 
 const VideoGame = ({ data, page }) => {
+  const dispatch = useDispatch();
+
   let renderData;
   if (data) {
     renderData = pagination(data.results, page);
   }
-  const dispatch = useDispatch();
+
   return (
-    <div className='container'>
+    <div data-testid='videogames-card' className='container'>
       {renderData ? (
         renderData.results.map((game) => (
           <div key={game.id} className='gameContainer'>

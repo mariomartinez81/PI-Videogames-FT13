@@ -35,7 +35,7 @@ const Input = ({ name, handleInput, type }) => {
 
   return (
     <div className='input-component'>
-      <label htmlFor='text'>
+      <label htmlFor='text' data-testid='div-input'>
         <span>{name}</span>
         <input
           type={type}
@@ -44,6 +44,8 @@ const Input = ({ name, handleInput, type }) => {
           className={state.error ? 'border-error' : 'style-input'}
           onInput={handleIn}
           onChange={handleInput}
+          data-testid='input-valitation'
+          required
         />
         {state.error && <p className='input-error'>{state.messageError}</p>}
       </label>

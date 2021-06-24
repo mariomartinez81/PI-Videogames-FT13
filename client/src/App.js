@@ -12,20 +12,18 @@ import { Route } from 'react-router-dom';
 function App() {
   return (
     <div className='App'>
+      My Project
       <Route exact path='/'>
         <Inicial />
       </Route>
-
       <Route exact path='/home'>
         <NavBar />
         <Home />
       </Route>
-
       <Route exact path='/videogame/:id'>
         <NavBar />
         <Detail />
       </Route>
-
       <Route exact path='/creategame'>
         <NavBar />
         <Form />

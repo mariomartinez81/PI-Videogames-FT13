@@ -78,7 +78,7 @@ const Form = () => {
   return (
     <div className='containerForm'>
       <h1>Create a new video game</h1>
-      <form action='' onSubmit={handleSubmit} className='style-form'>
+      <form onSubmit={handleSubmit} className='style-form' data-testid='form'>
         <Input name='name' type='text' handleInput={handleInput} />
         <Input name='description' type='text' handleInput={handleInput} />
         <Input name='released' type='date' handleInput={handleInput} />
@@ -112,7 +112,12 @@ const Form = () => {
             <li key={i}>{genre}</li>
           ))} */}
         </>
-        <input type='submit' value='Submit' className='button' />
+        <input
+          type='submit'
+          value='Submit'
+          className='button'
+          data-testid='required-input-submit'
+        />
         {alert.create ? (
           <div className='create--confirm'>
             <h3 className='message--create'>Game was created!</h3>

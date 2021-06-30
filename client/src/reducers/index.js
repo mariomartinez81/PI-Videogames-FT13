@@ -29,6 +29,7 @@ const initialState = {
   ratingOrdering: {},
   gamesFavorites: [],
   gamesCreated: {},
+  ultimateCreated: {},
 };
 
 export default function rootReducers(state = initialState, action) {
@@ -130,17 +131,3 @@ export default function rootReducers(state = initialState, action) {
       return state;
   }
 }
-
-// case ALPHABETIC_ORDERING:
-//   return {
-//     ...state,
-//     type: action.state,
-//     alphabeticOrdering: { ...action.payload },
-//   };
-
-// case RATING_ORDERING:
-//   return {
-//     ...state,
-//     type: action.state,
-//     ratingOrdering: { ...action.payload },
-//   };

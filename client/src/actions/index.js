@@ -82,6 +82,14 @@ export const getGenres = () => async (dispatch) => {
   }
 };
 
+export const postVideogame = (payload) => async () => {
+  try {
+    await axios.post(`http://localhost:3001/videogame`, payload);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const filterGenre = (payload) => ({
   type: FILTERING_GENRE,
   payload,
@@ -121,94 +129,3 @@ export const setPage = (payload) => ({
   type: SET_PAGE,
   payload,
 });
-
-//backend filtering
-
-/* export const filterGenre = (payload) => async (dispatch) => {
-  try {
-    const gamesByGenres = await axios.get(
-      `http://localhost:3001/videogames?genre=${payload}`
-    );
-    const response = gamesByGenres.data;
-    const filterResponse = response
-      .map((game) => {
-        let array = [];
-        for (let item of game.genre) {
-          if (item.name === payload) array.push(game);
-        }
-        return array;
-      })
-      .filter((ele) => ele.length > 0)
-      .flat(Infinity);
-
-    const finalResponse = { results: filterResponse };
-    dispatch({
-      type: FILTERING_GENRE,
-      option: payload,
-      payload: finalResponse,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-}; */
-
-/* export const alphabeticOrder = (payload, url) => async (dispatch) => {
-  if (!url) {
-    try {
-      const alphabeticGames = await axios.get(
-        `http://localhost:3001/videogames?order=${payload}`
-      );
-      const response = alphabeticGames.data;
-      dispatch({
-        type: ALPHABETIC_ORDERING,
-        state: payload,
-        payload: response,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  } else {
-    try {
-      const alphabeticGames = await axios.get(`${url}`);
-      const response = alphabeticGames.data;
-      dispatch({
-        type: ALPHABETIC_ORDERING,
-        state: payload,
-        payload: response,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-};
- */
-
-/* export const ratingOrder = (payload, url) => async (dispatch) => {
-  if (!url) {
-    try {
-      const ratingGames = await axios.get(
-        `http://localhost:3001/videogames?rating=${payload}`
-      );
-      const response = ratingGames.data;
-      dispatch({
-        type: RATING_ORDERING,
-        state: payload,
-        payload: response,
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  } else {
-    try {
-      const ratingGames = await axios.get(`${url}`);
-      const response = ratingGames.data;
-      dispatch({
-        type: RATING_ORDERING,
-        state: payload,
-        payload: response,
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }
-}; */

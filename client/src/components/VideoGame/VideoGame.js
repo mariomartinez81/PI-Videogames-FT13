@@ -55,10 +55,15 @@ const VideoGame = ({ data, page }) => {
           </div>
         ))
       ) : (
-        <h1>Loading...</h1>
+        <img
+          src='https://www.gifss.com/videojuegos/pacman/images/gif-pacman-11.gif'
+          alt='loading'
+        />
       )}
     </div>
   );
 };
 
 export default VideoGame;
+
+/* <h1>Loading...</h1> */

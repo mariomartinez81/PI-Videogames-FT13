@@ -34,7 +34,7 @@ const Home = () => {
     dispatch(setPage(page - 1));
   };
 
-  console.log(gamesCreated);
+  console.log(gamesLoaded);
 
   return (
     <>

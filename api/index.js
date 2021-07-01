@@ -6,7 +6,7 @@ const axios = require('axios').default;
 const { APY_KEY } = process.env;
 
 // Syncing all the models at once.
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
 conn.sync({ force: true }).then(() => {
   server.listen(PORT, () => {

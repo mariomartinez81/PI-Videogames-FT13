@@ -41,8 +41,6 @@ Look for your favorite Video games, add to favorites, search your favorite games
 
 ## **Backend**
 
-[**Access the Backend (deployed with Heroku) here!**](https://pokemon-app-back.herokuapp.com/) (using one of the endpoints described below)
-
 ### **Tech stack**
 
 - JavaScript

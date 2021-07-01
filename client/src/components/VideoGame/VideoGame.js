@@ -50,7 +50,7 @@ const VideoGame = ({ data, page }) => {
               }
               className='img-fav'
             >
-              ⭐
+              <button className='start-fav'>⭐</button>
             </figure>
           </div>
         ))

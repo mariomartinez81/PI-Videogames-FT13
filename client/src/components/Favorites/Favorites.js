@@ -35,12 +35,12 @@ const Favorites = () => {
             <span>
               <b>Rating:</b> {game.rating}
             </span>
-            <span
+            <button
               onClick={() => dispatch(removeFavorites(game.id))}
               className='remove-fav'
             >
               ❌
-            </span>
+            </button>
           </div>
         )
       )}

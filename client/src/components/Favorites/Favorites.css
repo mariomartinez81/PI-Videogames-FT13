@@ -14,7 +14,7 @@
   width: 15rem;
   margin: 0.5 rem;
   border-radius: 5px;
-  box-shadow: 3px 3px 10px #7d3db9;
+  /* box-shadow: 3px 3px 10px #7d3db9; */
 }
 
 .imgCreateGame {
@@ -23,6 +23,18 @@
   margin-right: 1rem;
 }
 
+.remove-fav {
+  position: absolute;
+  background: linen;
+  top: 0%;
+  right: 0%;
+  border: transparent;
+  transform: scale(1.1, 1.1);
+}
 .remove-fav:hover {
+  filter: saturate(180%);
   cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease ease-in-out;
+  border: 1px solid #ffffff;
 }

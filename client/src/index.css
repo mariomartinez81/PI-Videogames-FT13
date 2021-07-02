@@ -6,10 +6,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* background-image: url('https://i.pinimg.com/originals/63/a7/10/63a710689bd5a3d64c58d66ed8a77e83.jpg'); */
-  /* background-size: cover; */
+  background-image: url('https://cdn.wallpapersafari.com/88/95/tCaJ3V.jpg');
+  display: flex;
+  background-size: cover;
   background-repeat: no-repeat;
-  /* min-height: 100vh; */
+  min-height: 100vh;
+  min-width: 100vh;
 }
 
 code {

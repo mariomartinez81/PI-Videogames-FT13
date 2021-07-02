@@ -8,6 +8,8 @@ Look for your favorite Video games, add to favorites, search your favorite games
 
 ## Frontend
 
+[**Access the Frontend (deployed with Vercel) here!**](https://videogames-app-psi.vercel.app//)
+
 ### **Tech stack**
 
 - JavaScript
@@ -40,6 +42,8 @@ Look for your favorite Video games, add to favorites, search your favorite games
 - 100% responsive design
 
 ## **Backend**
+
+[**Access the Backend (deployed with Heroku) here!**](https://videogame-backend.herokuapp.com/) (using one of the endpoints described below)
 
 ### **Tech stack**
 

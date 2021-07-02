@@ -15,9 +15,11 @@ export const ALPHABETIC_ORDERING = 'ALPHABETIC_ORDERING';
 export const RATING_ORDERING = 'RATING_ORDERING';
 export const GAMES_CREATED = 'GAMES_CREATED';
 
+const backend = 'https://videogame-backend.herokuapp.com';
+
 export const getVideogames = () => async (dispatch) => {
   try {
-    const request = await axios.get(`http://localhost:3001/videogames`);
+    const request = await axios.get(`${backend}/videogames`);
     const videoGames = request.data;
     dispatch({
       type: GET_VIDEOGAMES,
@@ -31,9 +33,7 @@ export const getVideogames = () => async (dispatch) => {
 export const getVideogamesByname = (name, url) => async (dispatch) => {
   if (!url) {
     try {
-      const request = await axios.get(
-        `http://localhost:3001/videogames?name=${name}`
-      );
+      const request = await axios.get(`${backend}/videogames?name=${name}`);
       const videoGames = request.data;
       dispatch({
         type: GET_VIDEOGAMES_BY_NAME,
@@ -58,7 +58,7 @@ export const getVideogamesByname = (name, url) => async (dispatch) => {
 
 export const getDetailVideoGame = (id) => async (dispatch) => {
   try {
-    const request = await axios.get(`http://localhost:3001/videogame/${id}`);
+    const request = await axios.get(`${backend}/videogame/${id}`);
     const videGame = request.data;
     dispatch({
       type: GET_DETAIL,
@@ -71,7 +71,7 @@ export const getDetailVideoGame = (id) => async (dispatch) => {
 
 export const getGenres = () => async (dispatch) => {
   try {
-    const request = await axios.get(`http://localhost:3001/genres`);
+    const request = await axios.get(`${backend}/genres`);
     const videGame = request.data;
     dispatch({
       type: GET_GENRES,
@@ -84,7 +84,7 @@ export const getGenres = () => async (dispatch) => {
 
 export const postVideogame = (payload) => async () => {
   try {
-    await axios.post(`http://localhost:3001/videogame`, payload);
+    await axios.post(`${backend}/videogame`, payload);
   } catch (error) {
     console.log(error);
   }

@@ -1,0 +1,25 @@
+.select-genres {
+  padding: 0.5rem;
+  margin: 1rem 1rem;
+  border: 2px solid #00ffcba3;
+  box-shadow: 12px 12px 24px #4fd1c5a3;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: min-content;
+  min-height: min-content;
+  max-width: fit-content;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+.contain-genre {
+  border: 1px solid #00ffcba3;
+  margin: 0.5rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+.contain-genre:hover {
+  box-shadow: 0 0 60px #00ffcba3;
+  transform: scale(1.05, 1.05);
+  background-color: rgba(255, 255, 255, 0.767);
+}

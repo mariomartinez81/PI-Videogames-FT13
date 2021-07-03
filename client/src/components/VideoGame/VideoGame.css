@@ -14,8 +14,8 @@
   height: min-content;
   /* font-family: 'Comic Sans MS'; */
   font-family: 'Doctor Glitch';
-  font-size: 12px;
-  text-shadow: 10px 0px 40px #ffffff;
+  font-size: 14px;
+  text-shadow: 3px 3px 5px #ffffff;
 }
 
 .gameContainer:hover {
@@ -28,7 +28,7 @@
   width: 15rem;
   margin: 0.5 rem;
   border-radius: 5px;
-  box-shadow: 10px 0px 100px #3d3d3d;
+  box-shadow: 20px 20px 30px #292929;
   /* box-shadow: 10px 0px 100px #ff02d5; */
 }
 

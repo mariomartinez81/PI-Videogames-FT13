@@ -4,6 +4,7 @@ import { getGenres, postVideogame } from '../../actions';
 import Input from '../Input/Input';
 import Select from '../Select/Select';
 import Button from '../Button/Button';
+import CheckboxGenres from '../CheckboxsGenres/CheckboxGenres';
 import { NavLink } from 'react-router-dom';
 import './Form.css';
 
@@ -37,6 +38,9 @@ const Form = () => {
     platforms: [],
     genres: [],
   });
+  const [genresName, setGenresName] = useState({
+    genresName: [],
+  });
 
   useEffect(() => {
     dispatch(getGenres());
@@ -61,6 +65,9 @@ const Form = () => {
       ...data,
       genres: [...data.genres, e.target.value],
     });
+    setGenresName({
+      genresName: [...genresName.genresName, e.target.value2],
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -70,7 +77,6 @@ const Form = () => {
       create: true,
     });
   };
-
   return (
     <div className='containerForm'>
       {alert.create ? (
@@ -80,9 +86,15 @@ const Form = () => {
           <NavLink to='/home'>
             <Button title={'Go Back'} />
           </NavLink>
+          <img
+            src='https://i.gifer.com/KGTD.gif'
+            // src='https://gatesbbq.com/wp-content/uploads/2017/04/checkmarksuccess.gif'
+            alt='img-dreated-game'
+            width='70%'
+          />
         </div>
       ) : (
-        <>
+        <div>
           <h1>Create a new video game 🎮</h1>
           <form
             onSubmit={handleSubmit}
@@ -105,23 +117,24 @@ const Form = () => {
                 <li key={i}>{platform}</li>
               ))}
             </>
-            <>
-              <Select
+
+            {/* <Select
                 name='genres'
                 data={gamesGenres}
                 handleSelect={handleSelectGenre}
                 state={data}
-              />
+              /> */}
 
-              {gamesGenres.map((genre) =>
+            {/* {gamesGenres.map((genre) =>
                 genre.id == data.genres.filter((select) => select) ? (
                   <li>{genre.name}</li>
                 ) : null
-              )}
-              {/* {data.genres.map((genre, i) => (
-            <li key={i}>{genre}</li>
-          ))} */}
-            </>
+              )} */}
+
+            <CheckboxGenres
+              data={gamesGenres}
+              handleSelectGenre={handleSelectGenre}
+            />
             <input
               type='submit'
               value='Submit'
@@ -129,7 +142,7 @@ const Form = () => {
               data-testid='required-input-submit'
             />
           </form>
-        </>
+        </div>
       )}
     </div>
   );

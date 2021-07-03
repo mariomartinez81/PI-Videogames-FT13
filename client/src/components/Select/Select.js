@@ -29,6 +29,7 @@ const Select = ({ name, data, handleSelect }) => {
           onChange={handleInput}
           onInput={handleSelect}
           className={stateSelect.error ? 'selector-error' : 'selector'}
+          name2='mario'
           data-testid='select-validation'
           required
         >

@@ -26,6 +26,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(getVideogames());
   }, [dispatch, type]);
+
   //handles paginations
   const handleNext = () => {
     dispatch(setPage(page + 1));

@@ -38,9 +38,6 @@ const Form = () => {
     platforms: [],
     genres: [],
   });
-  const [genresName, setGenresName] = useState({
-    genresName: [],
-  });
 
   useEffect(() => {
     dispatch(getGenres());
@@ -64,9 +61,6 @@ const Form = () => {
     setData({
       ...data,
       genres: [...data.genres, e.target.value],
-    });
-    setGenresName({
-      genresName: [...genresName.genresName, e.target.value2],
     });
   };
 
